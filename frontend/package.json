@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@nanostores/react": "^0.7.2",
+    "nanostores": "^0.10.3",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest"
