@@ -1,10 +1,8 @@
-"use client"
+"use client";
 import NavLink from "./Navlink";
 import { useState } from "react";
 import NavMobile from "./NavMobile";
 import { useEffect } from "react";
-
-
 
 const navLinks = [
    { title: "Productos", path: "/productos", offset: -55 },
@@ -44,9 +42,12 @@ export default function Navbar() {
    };
 
    return (
-      <nav  
-         className={`fixed top-0 left-0 right-0 z-50 lg:mb-4 pb-4 shadow-sticky ${scrolling ? "bg-[#86DBD4] bg-opacity-40  backdrop-blur-sm" : "md:bg-transparent bg-[#00040F] bg-opacity-100"
-            }`}
+      <nav
+         className={`fixed top-0 left-0 right-0 z-50 lg:mb-4 pb-4 shadow-sticky pr-12 ${
+            scrolling
+               ? " bg-[#FF90BC] bg-opacity-60  backdrop-blur-sm"
+               : "md:bg-transparent bg-[#FF90BC bg-opacity-100"
+         }`}
       >
          <div className="flex items-center justify-between p-4 pb-0 font-medium">
             <a href={"/"} className="ml-8 text-2xl md:text-3xl text-white font-semibold">
@@ -58,8 +59,12 @@ export default function Navbar() {
                      className="w-9 h-9 relative z-[5]"
                   /> */}
                   <span className="text-transparent bg-[#043D7A] bg-clip-text "></span>
-                  <span className=" text-white bg-clip-text" style={{ fontFamily: 'Sometype Mono, monospace' }}>Pasteleria X</span>
-
+                  <span
+                     className=" text-[#ffffff] bg-clip-text hover:text-[#E22C53]"
+                     style={{ fontFamily: "Sometype Mono, monospace" }}
+                  >
+                     Panimar
+                  </span>
                </p>
             </a>
             <div className="mobile-menu block md:hidden">
@@ -106,42 +111,26 @@ export default function Navbar() {
                   </button>
                )}
             </div>
-         
+
             <div className=" hidden md:flex md:justify-between md:w-3/2  gap-10">
                <div className="menu md:flex md:w-auto z-50 justify-between " id="navbar">
                   <ul className="flex md:space-x-8">
                      {navLinks.map((link, index) => (
                         <li key={index}>
-                           <NavLink
-                              path={link.path}
-                              title={link.title}
-                           />
+                           <NavLink path={link.path} title={link.title} />
                         </li>
                      ))}
                   </ul>
-               </div>
-               {/* darkmode */}
-               <div className="text-white hidden  md:block hover:text-[#F6A9BD] hover:cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-               </svg>
-               </div>
-               {/* Idioma */}
-               <div className="text-white hidden  md:block hover:text-[#F6A9BD] hover:cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-               </svg>
                </div>
             </div>
          </div>
          <ul className="flex flex-col items-center">
             {navbarOpen
                ? navLinks.map((link, index) => (
-                  <li key={index}>
-                     <NavMobile
-                        path={link.path}
-                        title={link.title}
-                     />
-                  </li>
-               ))
+                    <li key={index}>
+                       <NavMobile path={link.path} title={link.title} />
+                    </li>
+                 ))
                : null}
          </ul>
       </nav>
