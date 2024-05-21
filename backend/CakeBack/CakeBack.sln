@@ -3,13 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34714.143
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBack.Models", "CakeBack.Models\CakeBack.Models.csproj", "{AF3D1FA6-2F1D-44EC-AF71-B29DBC00BD1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CakeBack.Models", "CakeBack.Models\CakeBack.Models.csproj", "{AF3D1FA6-2F1D-44EC-AF71-B29DBC00BD1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CackeBack.DAL", "CackeBack.DAL\CackeBack.DAL.csproj", "{BF5E4F44-C166-462A-A40E-B91893673FF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CackeBack.DAL", "CackeBack.DAL\CackeBack.DAL.csproj", "{BF5E4F44-C166-462A-A40E-B91893673FF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CackeBack.BLL", "CackeBack.BLL\CackeBack.BLL.csproj", "{1721EC58-C901-4969-995E-0F2FFE00FDB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CackeBack.BLL", "CackeBack.BLL\CackeBack.BLL.csproj", "{1721EC58-C901-4969-995E-0F2FFE00FDB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CackeBack.API", "CackeBack.WebAPI\CackeBack.API.csproj", "{65221D5A-4D31-4EB2-BA5D-094DEEEB69AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CackeBack.API", "CackeBack.WebAPI\CackeBack.API.csproj", "{65221D5A-4D31-4EB2-BA5D-094DEEEB69AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{8F151592-A73E-444F-BCA0-6782AA46E741}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Carrito", "Carrito", "{BB81130A-97D4-40A8-B1C6-593B788A5A21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "carrito", "carrito\carrito.csproj", "{208BA82D-9EDE-43CE-9298-22AAF97000A3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +39,19 @@ Global
 		{65221D5A-4D31-4EB2-BA5D-094DEEEB69AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{65221D5A-4D31-4EB2-BA5D-094DEEEB69AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{65221D5A-4D31-4EB2-BA5D-094DEEEB69AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{208BA82D-9EDE-43CE-9298-22AAF97000A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{208BA82D-9EDE-43CE-9298-22AAF97000A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{208BA82D-9EDE-43CE-9298-22AAF97000A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{208BA82D-9EDE-43CE-9298-22AAF97000A3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF3D1FA6-2F1D-44EC-AF71-B29DBC00BD1B} = {8F151592-A73E-444F-BCA0-6782AA46E741}
+		{BF5E4F44-C166-462A-A40E-B91893673FF7} = {8F151592-A73E-444F-BCA0-6782AA46E741}
+		{1721EC58-C901-4969-995E-0F2FFE00FDB6} = {8F151592-A73E-444F-BCA0-6782AA46E741}
+		{208BA82D-9EDE-43CE-9298-22AAF97000A3} = {BB81130A-97D4-40A8-B1C6-593B788A5A21}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B321D16A-4B60-43D1-A871-C06A99E191CD}

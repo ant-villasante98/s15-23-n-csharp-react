@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("CackeBack.API")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("carrito")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+10f31ae7fbd6b196b379a3f6dfeeef91fb116910")]
-[assembly: System.Reflection.AssemblyProductAttribute("CackeBack.API")]
-[assembly: System.Reflection.AssemblyTitleAttribute("CackeBack.API")]
+[assembly: System.Reflection.AssemblyProductAttribute("carrito")]
+[assembly: System.Reflection.AssemblyTitleAttribute("carrito")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
