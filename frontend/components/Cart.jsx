@@ -1,5 +1,6 @@
+"use client"
 import { useState, useEffect } from "react";
-
+ 
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [productQuantities, setProductQuantities] = useState({});
