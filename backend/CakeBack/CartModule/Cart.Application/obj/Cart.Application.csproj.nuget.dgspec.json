@@ -1,25 +1,34 @@
 {
   "format": 1,
   "restore": {
-    "/home/antonio/Documentos/proyectos/NoCountry/s15-23-n-csharp-react/backend/CakeBack/CartModule/Cart.Application/Cart.Application.csproj": {}
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react\\backend\\CakeBack\\CartModule\\Cart.Application\\Cart.Application.csproj": {}
   },
   "projects": {
-    "/home/antonio/Documentos/proyectos/NoCountry/s15-23-n-csharp-react/backend/CakeBack/CartModule/Cart.Application/Cart.Application.csproj": {
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react\\backend\\CakeBack\\CartModule\\Cart.Application\\Cart.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/antonio/Documentos/proyectos/NoCountry/s15-23-n-csharp-react/backend/CakeBack/CartModule/Cart.Application/Cart.Application.csproj",
+        "projectUniqueName": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react\\backend\\CakeBack\\CartModule\\Cart.Application\\Cart.Application.csproj",
         "projectName": "Cart.Application",
-        "projectPath": "/home/antonio/Documentos/proyectos/NoCountry/s15-23-n-csharp-react/backend/CakeBack/CartModule/Cart.Application/Cart.Application.csproj",
-        "packagesPath": "/home/antonio/.nuget/packages/",
-        "outputPath": "/home/antonio/Documentos/proyectos/NoCountry/s15-23-n-csharp-react/backend/CakeBack/CartModule/Cart.Application/obj/",
+        "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react\\backend\\CakeBack\\CartModule\\Cart.Application\\Cart.Application.csproj",
+        "packagesPath": "C:\\Users\\Indatech\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react\\backend\\CakeBack\\CartModule\\Cart.Application\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
         "configFilePaths": [
-          "/home/antonio/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Indatech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +41,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -53,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

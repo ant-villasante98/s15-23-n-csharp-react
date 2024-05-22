@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Entidades\" />
     <Folder Include="Utilidades\" />
     <Folder Include="VModels\" />
   </ItemGroup>
