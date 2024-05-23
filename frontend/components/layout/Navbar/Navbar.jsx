@@ -3,7 +3,6 @@ import NavLink from "./Navlink";
 import { useState } from "react";
 import NavMobile from "./NavMobile";
 import { useEffect } from "react";
-import { Toaster } from "react-hot-toast";
 
 const navLinks = [
   { title: "Tienda", path: "/tienda", offset: -55 },
@@ -49,7 +48,6 @@ export default function Navbar() {
           : "md:bg-transparent bg-[#00040F] bg-opacity-100"
       }`}
     >
-      <Toaster />
       <div className="flex items-center justify-between p-4 pb-0 font-medium">
         <a
           href={"/"}
