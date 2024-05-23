@@ -1,27 +1,16 @@
 "use client";
-import { $Category, $Products } from "@/stores/products";
-import { useStore } from "@nanostores/react";
+import { $Category } from "@/stores/products";
+import { useStoreCategories } from "./useStoreCategories";
 
 export const StoreCategories = () => {
-  const allProducts = useStore($Products);
-  const categorias = [
-    ...new Set(allProducts.map((product) => product.category)),
-  ].map((category) => ({
-    category,
-    image: allProducts.find((product) => product.category === category).image,
-  }));
-  categorias.unshift({
-    category: "Todo",
-    image:
-      "https://images.pexels.com/photos/4913389/pexels-photo-4913389.jpeg?auto=compress&cs=tinysrgb&w=600",
-  });
+  const { categorias } = useStoreCategories();
   return (
     <div>
       <ul className="flex gap-8 flex-wrap items-center justify-center">
         {categorias.map((category) => (
           <li
             key={category.category}
-            className="text-[#5f4b85] text-2xl font-bold"
+            className="text-primario text-2xl font-bold"
           >
             <button
               className="group flex flex-col items-center justify-center gap-2"

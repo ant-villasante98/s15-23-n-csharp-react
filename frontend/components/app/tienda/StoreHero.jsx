@@ -1,21 +1,21 @@
-import { cakeWaves } from "@/components/app/tienda/cakeWaves";
 import Image from "next/image";
+import { CakeWaves } from "./cakeWaves";
 
 export const StoreHero = () => {
   return (
     <section>
-      <div className="h-80 overflow-hidden bg-[#FFD6EB]">
+      <div className="h-80 overflow-hidden bg-cuaternario">
         <div className=" flex flex-col justify-center items-center gap-10 absolute pl-80 top-40">
-          <p className="text-6xl text-[#B892FF] font-DancingScript">
+          <p className="text-6xl text-terciario font-DancingScript">
             Tienda de Pasteles y Repostería
           </p>
-          <p className="text-2xl text-[#5f4b85] font-bold">
+          <p className="text-2xl text-primario font-bold">
             Tortas, pasteles, cupcakes, galletas, brownies, y mucho más.
           </p>
         </div>
       </div>
       <div className=" relative ">
-        {cakeWaves()}
+        <CakeWaves className="text-cuaternario" />
 
         <Image
           priority
