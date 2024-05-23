@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Cacke.Identity\Cacke.Identity.csproj" />
     <ProjectReference Include="..\CackeBack.BLL\CackeBack.BLL.csproj" />
     <ProjectReference Include="..\CakeBack.Models\CakeBack.Models.csproj" />
   </ItemGroup>
