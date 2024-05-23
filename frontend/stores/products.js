@@ -1,5 +1,6 @@
 import { atom } from "nanostores";
 
+export const $Category = atom("All");
 export const $Products = atom([
   {
     id: 1,

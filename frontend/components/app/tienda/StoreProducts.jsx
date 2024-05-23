@@ -1,30 +1,58 @@
 "use client";
-import { $Products } from "@/stores/products";
+import { $Category, $Products } from "@/stores/products";
 import { useStore } from "@nanostores/react";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
-export const StoreProducts = ({ category }) => {
+export const StoreProducts = ({ searchParams }) => {
+  const category = searchParams.categoria?.toLowerCase();
   const allProducts = useStore($Products);
-  const [products, setProducts] = useState(allProducts);
+  const categorySelected = useStore($Category);
+  const categorias = [
+    ...new Set(allProducts.map((product) => product.category.toLowerCase())),
+  ];
+  const [products, setProducts] = useState([]);
   useEffect(() => {
-    if (category !== "all") {
+    if (category) {
+      if (!categorias.includes(category)) {
+        toast.error(`No se encontraron productos en la categoría ${category}`);
+        return setProducts(allProducts);
+      }
       setProducts(
-        allProducts.filter((product) => product.category === category)
+        allProducts.filter(
+          (product) => product.category?.toLowerCase() === category
+        )
       );
+    } else {
+      setProducts(allProducts);
     }
-  }, [category]);
+  }, []);
+
+  useEffect(() => {
+    if (categorySelected !== "All" && categorySelected !== "todo") {
+      setProducts(
+        allProducts.filter(
+          (product) => product.category?.toLowerCase() === categorySelected
+        )
+      );
+    } else if (categorySelected === "todo") {
+      setProducts(allProducts);
+    }
+  }, [categorySelected]);
+
   return (
-    <section className=" flex flex-wrap items-center justify-center mt-36 overflow-hidden">
+    <section className=" flex flex-wrap gap-4 items-center justify-center mt-36 overflow-hidden">
       {products.map((product) => (
         <a
           href={`/tienda/${product.id}`}
           key={product.id}
-          className="flex flex-col justify-center w-[20rem] h-[26rem] p-2 gap-6 group"
+          className="flex flex-col justify-center items-center w-[18rem] h-[26rem] gap-6 group"
         >
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center overflow-hidden w-[15rem] h-[15rem] rounded-md shadow-lg">
             <img
+              alt={product.name}
               src={product.image}
-              className=" w-[15rem] h-[15rem] object-cover rounded-md shadow-lg group-hover:scale-105 transition-transform duration-300 ease-in-out"
+              className=" w-[15rem] h-[15rem] object-cover object-center group-hover:scale-125 transition-transform duration-1000 ease-in-out"
             />
           </div>
           <div className="flex flex-col justify-between h-[6rem]">
