@@ -70,60 +70,64 @@ const Cart = () => {
 
   return (
     <>
-      <div className="max-w-lg mx-auto bg-purple-400 pl-5 pb-10 rounded-md ">
-        <h3 className="text-xl font-semibold mb-4 pt-5 align-middle text-center">
-          Shopping Cart:{" "}
+      <div className=" sm:w-full  mx-auto  bg-gray-50  pb-10 rounded-md ">
+        <h3 className="  flex-1 justify-center content-center h-20  bg-gray-100 text-pink-400  text-center  text-xl font-semibold  border-b-2 border-slate-100 shadow-sm mb-3">
+          Cart:{" "}
         </h3>
-        <ul>
+        <ul className="p">
           {products.map((product) => (
             <li
               key={product.id}
-              className="border-b border-gray-200 py-2 flex justify-between items-center pb-12"
+              className="sm:h-24  pt-2  border-b border-gray-200  flex justify-between  md:justify-between lg:justify-around  "
             >
-              <div className=" flex gap-8">
+              <div className="flex gap-8 md:w-80 xl: w-96">
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-20 h-20 mr-4"
+                  className="w-12 h-12"
                 />
                 <div>
-                  <h4 className="text-lg font-semibold">{product.name}</h4>
-                  <p className="text-sm text-gray-600 mb-1">
-                    {product.description}
-                  </p>
-                  <p className="text-lg font-semibold">${product.price}</p>
-                  <p className="text-lg font-semibold">
+                  <h4 className="text-base pb-1 font-semibold  text-pink-400  ">{product.name}</h4>
+                 
+                  <p className="text-sm font-semibold pt-2 pb-1  text-pink-300  ">${product.price}</p>
+                  <p className="text-xs pt-2 font-semibold text-pink-500 ">
                     Total: ${product.price * productQuantities[product.id]}
                   </p>
                 </div>
               </div>
-              <div className="pr-10 flex gap-5">
+              <div className="sm:pr-10 flex gap-5 items-center md:w-80 md:justify-between md:pr-10 xl:w-96">
                 {/* Botón - visible solo si la cantidad es mayor a 1 */}
+                
+               
+                <button className=" w-6 h-6 font-medium rounded-md  text-pink-400  bg-pink-200 transition-all duration-500 ease-in-out hover:text-pink-700 hover:bg-pink-300 md:w-10 md:h-10 " onClick={() => handleIncrementQuantity(product.id)}>
+                  +
+                </button>
+
+                <span className="text-md font-medium text-gray-400 md:text-lg">{productQuantities[product.id]}</span>
+
                 {productQuantities[product.id] > 1 && (
-                  <button className="w-10 h-10 font-medium rounded-md bg-purple-700 text-white transition-all duration-500 ease-in-out hover:bg-white hover:text-purple-700 " onClick={() => handleDecrementQuantity(product.id)}>
+                  <button className="sm:w-6 h-6 font-medium rounded-md  text-pink-400  bg-pink-200 transition-all duration-500 ease-in-out hover:text-pink-700 hover:bg-pink-300 md:w-10 md:h-10" onClick={() => handleDecrementQuantity(product.id)}>
                     -
                   </button>
                 )}
-                <span className="text-lg font-semibold">{productQuantities[product.id]}</span>
-                <button className="w-10 h-10 font-medium rounded-md bg-purple-700 text-white transition-all duration-500 ease-in-out hover:bg-white hover:text-purple-700 " onClick={() => handleIncrementQuantity(product.id)}>
-                  +
-                </button>
                 
-                <button className="w-10 h-10 font-medium rounded-md bg-red-700 text-white transition-all duration-500 ease-in-out hover:bg-white hover:text-red-700 " onClick={() => handleRemoveProduct(product.id)}>
+                <button className="w-6 h-6 font-medium rounded-md bg-pink-600 text-white transition-all duration-500 ease-in-out hover:bg-white hover:text-pink-600 hover:border hover:border-pink-600 md:w-10 md:h-10 " onClick={() => handleRemoveProduct(product.id)}>
                   X
                 </button>
               </div>
             </li>
           ))}
         </ul>
-        <div className="total">
-          <p className="text-lg font-semibold">Total del Carrito: ${totalCartPrice}</p>
-        </div>
-        <div className="flex justify-around items-center content-center pt-14">
-          <button className=" w-40 h-14 text-lg font-medium rounded-md bg-red-700 text-white transition-all duration-500 ease-in-out hover:bg-white hover:text-red-700  hover:scale-120-smooth" onClick={handleClearCart}>
+        <div className="total flex justify-between pl-3 pr-3 items-center h-20   pb-2 border-b-2 shadow-sm border-gray-100 lg:h-60 lg:justify-evenly">
+          <p className="text-lg  text-pink-600 font-semibold md:text-2xl">Total del Carrito: ${totalCartPrice}</p>
+          <button className="w-22 h-10 text-xs font-medium rounded-md bg-red-700 text-white transition-all duration-500 ease-in-out hover:bg-transparent hover:border border-red-700 hover:text-black  hover:scale-120-smooth md:w-28 md:h-30" onClick={handleClearCart}>
             Vaciar Carrito
           </button>
-          <button className=" w-40 h-14 text-lg font-medium rounded-md bg-purple-700 text-white transition-all duration-500 ease-in-out hover:bg-white hover:text-purple-700 hover:scale-120-smooth">
+        </div>
+        
+        <div className="flex justify-around items-center content-center pt-5  ">
+          
+          <button className=" w-40 h-14 text-lg font-medium rounded-md  bg-pink-500 text-white transition-all duration-500 ease-in-out  hover:text-pink-500 hover:border hover:border-pink-500  hover:bg-pink-200  hover:scale-120-smooth">
             Comprar
           </button>
         </div>

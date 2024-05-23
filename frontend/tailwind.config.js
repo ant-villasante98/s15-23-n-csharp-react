@@ -5,6 +5,10 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  colors: {
+    'custom-fdfafc': '#fdfafc',
+  },
+
   theme: {
     extend: {
       backgroundImage: {
@@ -13,6 +17,14 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+   screens:{
+    'sm': '368px',
+    'md': '600px',
+    'lg': '1024px',
+    'xl': '1200px',
+    '2xl': '1536px',
+   }
+    
   },
   plugins: [],
 }
