@@ -10,9 +10,9 @@ export const StoreProducts = ({ searchParams }) => {
         <a
           href={`/tienda/${product.id}`}
           key={product.id}
-          className="flex flex-col justify-center items-center w-[18rem] h-[26rem] gap-6 group"
+          className="flex flex-col justify-center items-center w-[12rem] h-[20rem] sm:w-[18rem] sm:h-[26rem] gap-6 group"
         >
-          <div className="flex justify-center items-center overflow-hidden w-[15rem] h-[15rem] rounded-md shadow-lg">
+          <div className="flex justify-center items-center overflow-hidden w-[8rem] h-[8rem] sm:w-[15rem] sm:h-[15rem] rounded-md shadow-lg">
             <img
               alt={product.name}
               src={product.image}
