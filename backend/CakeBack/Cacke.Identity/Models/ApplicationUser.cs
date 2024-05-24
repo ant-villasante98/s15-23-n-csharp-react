@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Identity;
+
 
 namespace Cacke.Identity.Models
 {
-    public class ApplicationUser
+    public class ApplicationUser : IdentityUser
     {
+        public string Nombre { get; set; }= string.Empty;
 
+        public string Apellidos {  get; set; }= string.Empty;
     }
 }

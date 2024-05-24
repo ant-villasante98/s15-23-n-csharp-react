@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Cacke.Identity.Service.Implementation
+namespace Cacke.Identity
 {
-    public class AuthService
+    public class IdentityServiceRegistration
     {
     }
 }
