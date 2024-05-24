@@ -14,7 +14,7 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
             return;
         }
 
-        productFound.Count = product.Count;
+        productFound.IncreaseCount(product.Count);
         await _cartProductRespository.UpdateAsync(productFound);
     }
 
