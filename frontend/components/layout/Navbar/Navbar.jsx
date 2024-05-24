@@ -6,8 +6,9 @@ import { useEffect } from "react";
 
 const navLinks = [
    { title: "Productos", path: "/productos", offset: -55 },
-   { title: "Realizar Pedido", path: "/pedido", offset: -130 },
+   { title: "Carrito", path: "/cart", offset: -130 },
    { title: "Iniciar Sesion", path: "/login", offset: -130 },
+   
 ];
 
 export default function Navbar() {
