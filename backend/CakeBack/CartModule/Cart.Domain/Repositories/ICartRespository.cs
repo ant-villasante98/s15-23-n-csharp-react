@@ -14,7 +14,9 @@ public interface ICartRespository
 
     Task UpdateProductByIdAsync(Guid id, int productId, int productCount);
 
-    Task DeleteProductFromCart(Guid id, int productId);
+    Task DeleteProductFromCartAsync(Guid id, int productId);
 
-    Task<ShoppingCart> FindById(Guid id);
+    Task<ShoppingCart> FindByIdAsync(Guid id);
+
+    Task<ShoppingCart> FindByUserIdAsync(int userId);
 }
