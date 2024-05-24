@@ -1,5 +1,7 @@
 using CackeBack.DAL.Dbcontext;
 using Microsoft.EntityFrameworkCore;
+using Cart.Application;
+using Cart.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,8 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
-
+// CartModule Extentions 
+builder.Services.AddShoppingCartApplication(builder.Configuration);
+builder.Services.AddShoppingCartInfrastructure(builder.Configuration);
 
 
 var app = builder.Build();

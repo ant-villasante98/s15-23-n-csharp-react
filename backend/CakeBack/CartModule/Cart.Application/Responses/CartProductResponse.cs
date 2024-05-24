@@ -1,7 +1,8 @@
 namespace Cart.Application.Response;
 
-public record CartProduct(
+public record CartProductResponse(
     int ProductId,
     string ProductName,
-    double Price
+    double Price,
+    int Count
 );

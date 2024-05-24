@@ -61,6 +61,7 @@ public class MockCartRepository : ICartProductRespository
         await Task.Run(() =>
         {
             int index = products.IndexOf(cartProduct);
+            products.Remove(cartProduct);
             products.Insert(index, cartProduct);
         });
     }
