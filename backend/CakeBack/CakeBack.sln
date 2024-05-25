@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cart.Domain", "CartModule\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cart.Infrastructure", "CartModule\Cart.Infrastructure\Cart.Infrastructure.csproj", "{5FE97CD1-3EAC-4A20-83DD-9090A842CA0C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{E6B6B573-6CFB-47AF-8267-302C6BE76311}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cart.Application.Tests", "CartModule\Test\Cart.Application.Tests\Cart.Application.Tests.csproj", "{1D119281-E0A4-4333-912B-A70283083C9A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +59,10 @@ Global
 		{5FE97CD1-3EAC-4A20-83DD-9090A842CA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5FE97CD1-3EAC-4A20-83DD-9090A842CA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5FE97CD1-3EAC-4A20-83DD-9090A842CA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D119281-E0A4-4333-912B-A70283083C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D119281-E0A4-4333-912B-A70283083C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D119281-E0A4-4333-912B-A70283083C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D119281-E0A4-4333-912B-A70283083C9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,8 @@ Global
 		{80DD32F7-41F3-4DCB-B8B7-D02356316BB1} = {8F49B1C0-3409-45CB-9E35-C5B3A9D9AEDE}
 		{BAE3A275-B7F4-4407-B0C6-E9E67FDDBA14} = {8F49B1C0-3409-45CB-9E35-C5B3A9D9AEDE}
 		{5FE97CD1-3EAC-4A20-83DD-9090A842CA0C} = {8F49B1C0-3409-45CB-9E35-C5B3A9D9AEDE}
+		{E6B6B573-6CFB-47AF-8267-302C6BE76311} = {8F49B1C0-3409-45CB-9E35-C5B3A9D9AEDE}
+		{1D119281-E0A4-4333-912B-A70283083C9A} = {E6B6B573-6CFB-47AF-8267-302C6BE76311}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B321D16A-4B60-43D1-A871-C06A99E191CD}

@@ -78,7 +78,6 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         CartProduct? productFound = await GetByProductIdAndUserId(userId, product.ProductId);
         if (productFound is null)
         {
-            await _cartProductRespository.AddAsync(product);
             return;
         }
 
