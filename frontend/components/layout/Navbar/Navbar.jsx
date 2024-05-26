@@ -8,40 +8,39 @@ const navLinks = [
    { title: "Productos", path: "/productos", offset: -55 },
    { title: "Carrito", path: "/cart", offset: -130 },
    { title: "Iniciar Sesion", path: "/login", offset: -130 },
-   
+   { title: "Tienda", path: "/tienda", offset: -55 },
 ];
 
 export default function Navbar() {
-   const [navbarOpen, setNavbarOpen] = useState(false);
-   const [scrolling, setScrolling] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
 
-   const handleScroll = () => {
-      const offset = window.scrollY;
-      setScrolling(offset > 0);
-   };
+  const handleScroll = () => {
+    const offset = window.scrollY;
+    setScrolling(offset > 0);
+  };
 
-   useEffect(() => {
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-         window.removeEventListener("scroll", handleScroll);
-      };
-   }, []);
-   const scrollToSection = (path, offset) => {
-      if (path.startsWith("/")) {
-         window.location.href = path;
-      } else {
-         const element = document.querySelector(path);
-         if (element) {
-            const offsetTop = element.offsetTop + offset;
-            window.scrollTo({
-               top: offsetTop,
-               behavior: "smooth",
-            });
-            setNavbarOpen(false);
-         }
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+  const scrollToSection = (path, offset) => {
+    if (path.startsWith("/")) {
+      window.location.href = path;
+    } else {
+      const element = document.querySelector(path);
+      if (element) {
+        const offsetTop = element.offsetTop + offset;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: "smooth",
+        });
+        setNavbarOpen(false);
       }
-   };
-
+    }
+  };
    return (
       <nav
          className={`fixed top-0 left-0 right-0 z-50 lg:mb-4 pb-4 shadow-sticky pr-12 ${
@@ -55,7 +54,6 @@ export default function Navbar() {
                <p className="ml-4 flex items-center text-2xl md:text-3xl 2xl:text-4xl">
                   {/* <img
                      src={}
-
                      alt="logo"
                      className="w-9 h-9 relative z-[5]"
                   /> */}

@@ -2,3 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "DancingScript";
+  src: url(/fonts/DancingScript-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-DancingScript {
+  font-family: "DancingScript", sans-serif;
+}
