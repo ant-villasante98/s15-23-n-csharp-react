@@ -1,7 +1,7 @@
 using Cart.Domain.Models;
 using Cart.Domain.Repositories;
 
-namespace Cart.Infrastructure.Persistence.MongoDB;
+namespace Cart.Infrastructure.Persistence.MongoDB.Driver;
 
 public class MockCartRepository : ICartProductRespository
 {
@@ -22,7 +22,7 @@ public class MockCartRepository : ICartProductRespository
         });
     }
 
-    public async Task DeleteByIdAsync(Guid cartProductId)
+    public async Task DeleteAsync(Guid cartProductId)
     {
         CartProduct? product = products.FirstOrDefault(p => p.Id == cartProductId);
         if (product == null)

@@ -2,7 +2,7 @@ namespace Cart.Domain.Models;
 
 public class CartProduct
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
 
     public int UserId { get; set; }
 
