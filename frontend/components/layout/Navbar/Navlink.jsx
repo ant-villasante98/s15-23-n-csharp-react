@@ -8,7 +8,7 @@ const NavLink = ({ path, title }) => {
 
    return (
       <Link href={path}>
-         <div className="block py-2 pl-3 pr-4 text-white sm:text-m 2xl:text-lg rounded md:p-0 hover:text-[#F6A9BD]" onClick={handleButtonClick}>
+         <div className="block py-2 pl-3 pr-4 text-white sm:text-m 2xl:text-lg rounded md:p-0 hover:text-[#6F6891]" onClick={handleButtonClick}>
             {title}
          </div>
       </Link>
