@@ -10,7 +10,7 @@ public interface ICartProductRespository
 
     Task DeleteAsync(CartProduct cartProduct);
 
-    Task DeleteByIdAsync(Guid cartProductId);
+    Task DeleteAsync(Guid cartProductId);
 
     Task DeleteManyByUserIdAsync(int userId);
 
