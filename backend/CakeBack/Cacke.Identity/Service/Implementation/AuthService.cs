@@ -1,9 +1,14 @@
-﻿using Cacke.Identity.Models;
+﻿using Cacke.Identity.Constant;
+using Cacke.Identity.Models;
 using Cacke.Identity.Service.Contract;
 using CakeBack.Models.Identity;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Linq;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 
 namespace Cacke.Identity.Service.Implementation
@@ -14,11 +19,11 @@ namespace Cacke.Identity.Service.Implementation
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly JwtSettings _jwtSettings;
 
-        public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, JwtSettings jwtSettings)
+        public AuthService(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IOptions<JwtSettings> jwtSettings)
         {
             _userManager = userManager;
             _signInManager = signInManager;
-            _jwtSettings = jwtSettings;
+            _jwtSettings = jwtSettings.Value;
         }
 
         public async Task<AuthResponse> Login(AuthRequest request)
@@ -38,10 +43,12 @@ namespace Cacke.Identity.Service.Implementation
                 throw new Exception($"Las credenciales son Incorrectas");
             }
 
+            var token = await GenerateToken(user);
+
             var authResponse = new AuthResponse
             {
                 Id = user.Id,
-                Token = "", //new JwtSecurityTokenHandler().WriteToken(token),
+                Token = new JwtSecurityTokenHandler().WriteToken(token),
                 Email = user.Email,
                 UserName = user.UserName,
 
@@ -85,11 +92,13 @@ namespace Cacke.Identity.Service.Implementation
             {
                 await _userManager.AddToRoleAsync(user, "Operator");
 
+                var token = await GenerateToken(user);
+
                 return new RegistrationResponse
                 {
                     Email = user.Email,
                     
-                    Token= "",
+                    Token= new JwtSecurityTokenHandler().WriteToken(token),
 
                     UserId = user.Id,
 
@@ -98,6 +107,43 @@ namespace Cacke.Identity.Service.Implementation
 
             }
             throw new Exception($"{result.Errors}");
+        }
+
+
+        public async Task<JwtSecurityToken> GenerateToken(ApplicationUser user) 
+        {
+            var userClaims = await _userManager.GetClaimsAsync(user);
+            
+            var roles = await _userManager.GetRolesAsync(user); 
+
+            var roleClaims = new List<Claim>();
+
+            foreach ( var role in roles)
+            {
+                roleClaims.Add(new Claim(ClaimTypes.Role, role));
+            }
+
+            var claims = new[]
+            {
+                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim(JwtRegisteredClaimNames.Email, user.Email),
+                new Claim(CustomClaimTypes.Uid, user.Id)
+            }.Union(userClaims).Union(roleClaims);
+
+            var symetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtSettings.Key));
+
+            var signingCredentials = new SigningCredentials(symetricSecurityKey, SecurityAlgorithms.HmacSha256);
+
+            var jwtSecurityToken =  new JwtSecurityToken(
+                    issuer: _jwtSettings.Issuer,
+                    audience: _jwtSettings.Audience,
+                    claims: claims,
+                    expires: DateTime.UtcNow.AddMinutes(_jwtSettings.DurationInMinute),
+                    signingCredentials: signingCredentials);
+
+
+            return jwtSecurityToken;
+
         }
     }
 }
