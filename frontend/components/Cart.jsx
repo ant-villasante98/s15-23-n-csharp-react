@@ -6,11 +6,12 @@ const Cart = () => {
   const [productQuantities, setProductQuantities] = useState({});
   const [cartIsEmpty, setCartIsEmpty] = useState(false);
 
+ 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch("/products.json");
-        const data = await response.json();
+        const response = await axios.get(/*CONECTAR AL BACKEND*/ );
+        const data = response.data;
         setProducts(data);
 
         const initialQuantities = {};
