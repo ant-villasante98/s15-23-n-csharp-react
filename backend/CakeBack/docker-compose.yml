@@ -5,4 +5,15 @@ services:
       context: .
     ports:
       - "9080:8080"
+    environment:
+      - MongoDBSettings__ConnectionString=mongodb://mongo:password@cart-db:27017
+    depends_on:
+      - cart-db
+  cart-db:
+    image: mongo
+    ports:
+      - "27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=mongo 
+      - MONGO_INITDB_ROOT_PASSWORD=password
     
