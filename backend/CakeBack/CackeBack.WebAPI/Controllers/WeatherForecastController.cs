@@ -1,4 +1,8 @@
+using CackeBack.BLL;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Shared.MediatRImplement.Requests;
+using Shared.MediatRImplement.Responses;
 
 namespace CackeBack.WebAPI.Controllers
 {
@@ -12,10 +16,12 @@ namespace CackeBack.WebAPI.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly MockService _mockService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, MockService mockService)
         {
             _logger = logger;
+            _mockService = mockService;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -28,6 +34,13 @@ namespace CackeBack.WebAPI.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpGet("cart-details")]
+        public async Task<ActionResult<List<CartDetail>>> GetCartDetails()
+        {
+            var response = await _mockService.GetCartDetails(1);
+            return Ok(response);
         }
     }
 }

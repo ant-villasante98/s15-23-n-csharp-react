@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Cart.Domain\Cart.Domain.csproj" />
+    <ProjectReference Include="..\..\SharedModule\Shared.MediatRImplement\Shared.MediatRImplement.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -18,6 +18,7 @@
     <ProjectReference Include="..\CackeBack.BLL\CackeBack.BLL.csproj" />
     <ProjectReference Include="..\CakeBack.Models\CakeBack.Models.csproj" />
     <ProjectReference Include="..\CartModule\Cart.Infrastructure\Cart.Infrastructure.csproj" />
+    <ProjectReference Include="..\SharedModule\Shared.MediatRImplement\Shared.MediatRImplement.csproj" />
   </ItemGroup>
 
 </Project>

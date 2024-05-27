@@ -2,6 +2,8 @@ using CackeBack.DAL.Dbcontext;
 using Microsoft.EntityFrameworkCore;
 using Cart.Application;
 using Cart.Infrastructure;
+using Shared.MediatRImplement;
+using CackeBack.BLL;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,15 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddShoppingCartApplication(builder.Configuration);
 builder.Services.AddShoppingCartInfrastructure(builder.Configuration);
 
+// Mediatr configuration
+builder.Services.AddMediatR(config =>
+{
+    config.RegisterServicesFromAssemblyContaining<CartApplicationAssemblyReference>();
+    // config.RegisterServicesFromAssemblyContaining<MediatRImplementAssemblyRegerence>();
+});
+
+// Mock 
+builder.Services.AddScoped<MockService>();
 
 var app = builder.Build();
 

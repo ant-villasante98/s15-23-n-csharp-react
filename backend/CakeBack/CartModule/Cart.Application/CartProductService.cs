@@ -46,9 +46,9 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         await _cartProductRespository.DeleteAsync(product);
     }
 
-    public Task<List<CartProduct>> GetCartByUserId(int userId)
+    public async Task<List<CartProduct>> GetCartByUserId(int userId)
     {
-        return _cartProductRespository.FindByUserIdAsync(userId);
+        return await _cartProductRespository.FindByUserIdAsync(userId);
     }
 
     public async Task IncreaseProduct(int userId, int productId, int count)
