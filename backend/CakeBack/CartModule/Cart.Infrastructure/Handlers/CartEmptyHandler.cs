@@ -1,7 +1,7 @@
 using MediatR;
 using Shared.MediatRImplement.Notifications;
 
-namespace Cart.Application.Handlers;
+namespace Cart.Infrastructure.Handlers;
 
 internal class CartEmptyHandler : INotificationHandler<OrderCreationCompleted>
 {

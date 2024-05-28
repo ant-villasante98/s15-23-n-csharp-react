@@ -1,8 +1,8 @@
 using System.Reflection;
 
-namespace Cart.Application;
+namespace Cart.Infrastructure;
 
-public class CartApplicationAssemblyReference
+public class CartInfrastructureAssemblyReference
 {
     internal static readonly Assembly assembly = Assembly.GetExecutingAssembly();
 }

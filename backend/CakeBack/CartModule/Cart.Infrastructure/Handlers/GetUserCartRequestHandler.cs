@@ -1,9 +1,10 @@
+using Cart.Application;
 using Cart.Domain.Models;
 using MediatR;
 using Shared.MediatRImplement.Requests;
 using Shared.MediatRImplement.Responses;
 
-namespace Cart.Application.Handlers;
+namespace Cart.Infrastructure.Handlers;
 
 internal class GetUserCartRequestHandler(ICartProductService _cartProductService) : IRequestHandler<GetUserCartRequest, List<CartDetail>>
 {

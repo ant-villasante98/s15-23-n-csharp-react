@@ -10,7 +10,7 @@ public class CartProductServiceTest
     {
         // Arrage
         Guid guid = Guid.NewGuid();
-        int userId = 2;
+        string userId = "user1";
         int productId = 1;
         CartProduct cartProduct = new CartProduct()
         {
@@ -45,7 +45,7 @@ public class CartProductServiceTest
     {
         // Arrage
         Guid guid = Guid.NewGuid();
-        int userId = 2;
+        string userId = "user1";
         int productId = 1;
         int countInit = 3;
         CartProduct cartProduct = new CartProduct()
@@ -92,7 +92,7 @@ public class CartProductServiceTest
     {
         // Arrage
         Guid guid = Guid.NewGuid();
-        int userId = 2;
+        string userId = "user1";
         int productId = 1;
         int decreasedCount = 2;
         int expectedCount = 3;
@@ -132,7 +132,7 @@ public class CartProductServiceTest
     {
         // Arrage
         Guid guid = Guid.NewGuid();
-        int userId = 2;
+        string userId = "user1";
         int productId = 1;
         int decreasedCount = 5;
         CartProduct cartProduct = new CartProduct()
@@ -170,7 +170,7 @@ public class CartProductServiceTest
     {
         // Arrage
         Guid guid = Guid.NewGuid();
-        int userId = 2;
+        string userId = "user1";
         int productId = 1;
         int decreasedCount = 5;
         CartProduct cartProduct = new CartProduct()
@@ -207,7 +207,7 @@ public class CartProductServiceTest
     public async Task GetCartByUser()
     {
         // Arrage
-        int userId = 2;
+        string userId = "user1";
         CartProduct cartProduct1 = new CartProduct()
         {
             Id = Guid.NewGuid(),
@@ -250,7 +250,7 @@ public class CartProductServiceTest
     {
         // Arrage
         Guid guid = Guid.NewGuid();
-        int userId = 2;
+        string userId = "user1";
         int productId = 1;
         int countInit = 3;
         CartProduct cartProduct = new CartProduct()
@@ -297,7 +297,7 @@ public class CartProductServiceTest
     {
         // Arrage
         Guid guid = Guid.NewGuid();
-        int userId = 2;
+        string userId = "user1";
         int productId = 1;
         CartProduct expectedcartProduct = new CartProduct()
         {

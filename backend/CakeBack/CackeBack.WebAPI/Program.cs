@@ -21,7 +21,7 @@ builder.Services.AddShoppingCartInfrastructure(builder.Configuration);
 // Mediatr configuration
 builder.Services.AddMediatR(config =>
 {
-    config.RegisterServicesFromAssemblyContaining<CartApplicationAssemblyReference>();
+    config.RegisterServicesFromAssemblyContaining<CartInfrastructureAssemblyReference>();
     // config.RegisterServicesFromAssemblyContaining<MediatRImplementAssemblyRegerence>();
 });
 
