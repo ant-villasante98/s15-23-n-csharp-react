@@ -2,6 +2,9 @@ using Cacke.Identity;
 using CackeBack.DAL.Dbcontext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Cart.Application;
+using Cart.Infrastructure;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +14,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 
 builder.Services.ConfigureIdentityServices(builder.Configuration);
 
@@ -59,6 +63,11 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 //
+
+
+// CartModule Extentions 
+builder.Services.AddShoppingCartApplication(builder.Configuration);
+builder.Services.AddShoppingCartInfrastructure(builder.Configuration);
 
 
 
