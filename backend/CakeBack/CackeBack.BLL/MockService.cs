@@ -7,7 +7,7 @@ namespace CackeBack.BLL;
 
 public class MockService(IMediator _mediator)
 {
-    public async Task<List<CartDetail>> GetCartDetails(int Id)
+    public async Task<List<CartDetail>> GetCartDetails(string Id)
     {
         await _mediator.Publish(new OrderCreationCompleted());
         var response = await _mediator.Send(new GetUserCartRequest(Id));

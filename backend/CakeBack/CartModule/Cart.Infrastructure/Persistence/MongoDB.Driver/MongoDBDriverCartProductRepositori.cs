@@ -31,19 +31,19 @@ public class MongoDBDriverCartProductRepository : ICartProductRespository
         await _cartProductCollection.DeleteOneAsync(filter);
     }
 
-    public async Task DeleteManyByUserIdAsync(int userId)
+    public async Task DeleteManyByUserIdAsync(string userId)
     {
         var filter = _filterBuilder.Eq(p => p.UserId, userId);
         await _cartProductCollection.DeleteManyAsync(filter);
     }
 
-    public async Task<CartProduct?> FindByProductIdAndUserIdAsync(int userId, int productId)
+    public async Task<CartProduct?> FindByProductIdAndUserIdAsync(string userId, int productId)
     {
         var filter = _filterBuilder.Eq(p => p.UserId, userId) & _filterBuilder.Eq(p => p.ProductId, productId);
         return await _cartProductCollection.Find(filter).FirstOrDefaultAsync();
     }
 
-    public async Task<List<CartProduct>> FindByUserIdAsync(int userId)
+    public async Task<List<CartProduct>> FindByUserIdAsync(string userId)
     {
         var filter = _filterBuilder.Eq(p => p.UserId, userId);
         return await _cartProductCollection.Find(filter).ToListAsync();

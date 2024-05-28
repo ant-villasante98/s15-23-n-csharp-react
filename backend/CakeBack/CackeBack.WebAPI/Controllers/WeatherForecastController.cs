@@ -39,7 +39,7 @@ namespace CackeBack.WebAPI.Controllers
         [HttpGet("cart-details")]
         public async Task<ActionResult<List<CartDetail>>> GetCartDetails()
         {
-            var response = await _mockService.GetCartDetails(1);
+            var response = await _mockService.GetCartDetails("user1");
             return Ok(response);
         }
     }
