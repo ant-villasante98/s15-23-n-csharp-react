@@ -10,7 +10,7 @@ namespace CakeBack.WebAPI.Controllers;
 [Route("api/v1/shopping-carts")]
 public class ShoppingCartsController(ICartProductService _cartProductService) : ControllerBase
 {
-    static private readonly int UserId = 1;
+    static private readonly string UserId = "user1";
 
     [HttpGet]
     public async Task<ActionResult<IEnumerable<CartProductResponse>>> GetCart()

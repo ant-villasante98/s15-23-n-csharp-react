@@ -2,9 +2,9 @@ namespace Cart.Domain.Models;
 
 public class CartProduct
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
 
-    public int UserId { get; set; }
+    public string UserId { get; set; } = string.Empty;
 
     public int ProductId { get; set; }
 
@@ -18,7 +18,7 @@ public class CartProduct
 
     //Todo: lista de categorias
 
-    public static CartProduct Create(int productId, int userId, int count, double price, string name, string image)
+    public static CartProduct Create(int productId, string userId, int count, double price, string name, string image)
     {
         return new CartProduct { Id = Guid.NewGuid(), UserId = userId, ProductId = productId, Count = count, Price = price, Name = name, Image = image };
     }

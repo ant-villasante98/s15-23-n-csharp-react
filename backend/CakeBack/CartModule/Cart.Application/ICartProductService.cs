@@ -4,21 +4,21 @@ namespace Cart.Application;
 
 public interface ICartProductService
 {
-    Task<List<CartProduct>> Update(int userId, List<CartProduct> products);
+    Task<List<CartProduct>> Update(string userId, List<CartProduct> products);
 
-    Task<List<CartProduct>> GetCartByUserId(int userId);
+    Task<List<CartProduct>> GetCartByUserId(string userId);
 
-    Task ToEmptyCartByUserId(int userId);
+    Task ToEmptyCartByUserId(string userId);
 
-    Task Update(int userId, CartProduct product);
+    Task Update(string userId, CartProduct product);
 
-    Task AddProduct(int userId, CartProduct product);
+    Task AddProduct(string userId, CartProduct product);
 
-    Task DeleteProduct(int userId, int productId);
+    Task DeleteProduct(string userId, int productId);
 
-    Task IncreaseProduct(int userId, int productId, int count);
+    Task IncreaseProduct(string userId, int productId, int count);
 
-    Task DecreaseProduct(int userId, int productId, int count);
+    Task DecreaseProduct(string userId, int productId, int count);
 
-    Task<CartProduct?> GetByProductIdAndUserId(int userId, int productId);
+    Task<CartProduct?> GetByProductIdAndUserId(string userId, int productId);
 }

@@ -1,7 +1,7 @@
 using Cart.Domain.Models;
 using Cart.Domain.Repositories;
 
-namespace Cart.Infrastructure.Persistence.MongoDB;
+namespace Cart.Infrastructure.Persistence.MongoDB.Driver;
 
 public class MockCartRepository : ICartProductRespository
 {
@@ -22,7 +22,7 @@ public class MockCartRepository : ICartProductRespository
         });
     }
 
-    public async Task DeleteByIdAsync(Guid cartProductId)
+    public async Task DeleteAsync(Guid cartProductId)
     {
         CartProduct? product = products.FirstOrDefault(p => p.Id == cartProductId);
         if (product == null)
@@ -32,7 +32,7 @@ public class MockCartRepository : ICartProductRespository
         await DeleteAsync(product);
     }
 
-    public async Task DeleteManyByUserIdAsync(int userId)
+    public async Task DeleteManyByUserIdAsync(string userId)
     {
         await Task.Run(() =>
         {
@@ -40,7 +40,7 @@ public class MockCartRepository : ICartProductRespository
         });
     }
 
-    public async Task<CartProduct?> FindByProductIdAndUserIdAsync(int userId, int productId)
+    public async Task<CartProduct?> FindByProductIdAndUserIdAsync(string userId, int productId)
     {
         return await Task.Run(() =>
         {
@@ -48,7 +48,7 @@ public class MockCartRepository : ICartProductRespository
         });
     }
 
-    public async Task<List<CartProduct>> FindByUserIdAsync(int userId)
+    public async Task<List<CartProduct>> FindByUserIdAsync(string userId)
     {
         return await Task.Run(() =>
         {

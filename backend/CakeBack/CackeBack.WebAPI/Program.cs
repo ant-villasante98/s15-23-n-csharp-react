@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Cart.Application;
 using Cart.Infrastructure;
+using Shared.MediatRImplement;
+using CackeBack.BLL;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -69,6 +71,15 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddShoppingCartApplication(builder.Configuration);
 builder.Services.AddShoppingCartInfrastructure(builder.Configuration);
 
+// Mediatr configuration
+builder.Services.AddMediatR(config =>
+{
+    config.RegisterServicesFromAssemblyContaining<CartInfrastructureAssemblyReference>();
+    // config.RegisterServicesFromAssemblyContaining<MediatRImplementAssemblyRegerence>();
+});
+
+// Mock 
+builder.Services.AddScoped<MockService>();
 
 
 var app = builder.Build();

@@ -5,7 +5,7 @@ using Cart.Domain.Repositories;
 namespace Cart.Application;
 public class CartProductService(ICartProductRespository _cartProductRespository) : ICartProductService
 {
-    public async Task AddProduct(int userId, CartProduct product)
+    public async Task AddProduct(string userId, CartProduct product)
     {
         CartProduct? productFound = await GetByProductIdAndUserId(userId, product.ProductId);
         if (productFound == null)
@@ -18,7 +18,7 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         await _cartProductRespository.UpdateAsync(productFound);
     }
 
-    public async Task DecreaseProduct(int userId, int productId, int count)
+    public async Task DecreaseProduct(string userId, int productId, int count)
     {
         CartProduct? cartProduct = await GetByProductIdAndUserId(userId, productId);
         if (cartProduct == null)
@@ -35,7 +35,7 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         await _cartProductRespository.UpdateAsync(cartProduct);
     }
 
-    public async Task DeleteProduct(int userId, int productId)
+    public async Task DeleteProduct(string userId, int productId)
     {
         CartProduct? product = await GetByProductIdAndUserId(userId, productId);
         if (product is null)
@@ -46,12 +46,12 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         await _cartProductRespository.DeleteAsync(product);
     }
 
-    public Task<List<CartProduct>> GetCartByUserId(int userId)
+    public async Task<List<CartProduct>> GetCartByUserId(string userId)
     {
-        return _cartProductRespository.FindByUserIdAsync(userId);
+        return await _cartProductRespository.FindByUserIdAsync(userId);
     }
 
-    public async Task IncreaseProduct(int userId, int productId, int count)
+    public async Task IncreaseProduct(string userId, int productId, int count)
     {
         CartProduct? product = await GetByProductIdAndUserId(userId, productId);
         if (product is null)
@@ -63,22 +63,21 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         await _cartProductRespository.UpdateAsync(product);
     }
 
-    public async Task ToEmptyCartByUserId(int userId)
+    public async Task ToEmptyCartByUserId(string userId)
     {
         await _cartProductRespository.DeleteManyByUserIdAsync(userId);
     }
 
-    public Task<List<CartProduct>> Update(int userId, List<CartProduct> products)
+    public Task<List<CartProduct>> Update(string userId, List<CartProduct> products)
     {
         throw new NotImplementedException();
     }
 
-    public async Task Update(int userId, CartProduct product)
+    public async Task Update(string userId, CartProduct product)
     {
         CartProduct? productFound = await GetByProductIdAndUserId(userId, product.ProductId);
         if (productFound is null)
         {
-            await _cartProductRespository.AddAsync(product);
             return;
         }
 
@@ -86,7 +85,7 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         await _cartProductRespository.UpdateAsync(productFound);
     }
 
-    public async Task<CartProduct?> GetByProductIdAndUserId(int userId, int productId)
+    public async Task<CartProduct?> GetByProductIdAndUserId(string userId, int productId)
     {
         return await _cartProductRespository.FindByProductIdAndUserIdAsync(userId, productId);
     }

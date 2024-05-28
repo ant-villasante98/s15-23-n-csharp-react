@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CackeBack.DAL\CackeBack.DAL.csproj" />
     <ProjectReference Include="..\CakeBack.Models\CakeBack.Models.csproj" />
+    <ProjectReference Include="..\SharedModule\Shared.MediatRImplement\Shared.MediatRImplement.csproj" />
   </ItemGroup>
 
   <ItemGroup>
