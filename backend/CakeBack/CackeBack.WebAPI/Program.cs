@@ -22,7 +22,7 @@ builder.Services.ConfigureIdentityServices(builder.Configuration);
 
 builder.Services.AddCors(option =>
     {
-    option.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+        option.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 
     });
@@ -70,6 +70,8 @@ builder.Services.AddSwaggerGen(options =>
 // CartModule Extentions 
 builder.Services.AddShoppingCartApplication(builder.Configuration);
 builder.Services.AddShoppingCartInfrastructure(builder.Configuration);
+
+builder.Services.AddOrders();
 
 // Mediatr configuration
 builder.Services.AddMediatR(config =>
