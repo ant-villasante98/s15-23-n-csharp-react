@@ -1,54 +1,17 @@
 [
   {
-    "id": 1,
-    "name": "Pastel de chocolate",
-    "price": 300,
-    "description": "Recubierto con frosting ",
-    "image": "/89357.jpg",
-    "category": "Pastele",
-    "createdAt": "2021-01-01",
-    "updatedAt": "2021-01-01"
+    "productId": 3,
+    "productName": "product 2",
+    "price": 4.4,
+    "count": 6
   },
   {
-    "id": 2,
-    "name": "Product 2",
-    "price": 400,
-    "description": "Description ",
-    "image": "/89357.jpg",
-    "category": "category2",
-    "createdAt": "2021-01-01",
-    "updatedAt": "2021-01-01"
-  },
-  {
-    "id": 3,
-    "name": "Product 3",
-    "price": 200,
-    "description": "Description ",
-    "image": "/89357.jpg",
-    "category": "category3",
-    "createdAt": "2021-01-01",
-    "updatedAt": "2021-01-01"
-  },
-  {
-    "id": 4,
-    "name": "Product 4",
-    "price": 350,
-    "description": "Description ",
-    "image": "/89357.jpg",
-    "category": "category4",
-    "createdAt": "2021-01-01",
-    "updatedAt": "2021-01-01"
-  },
-  {
-    "id": 5,
-    "name": "Product 5",
-    "price": 250,
-    "description": "Description ",
-    "image": "/89357.jpg",
-    "category": "category5",
-    "createdAt": "2021-01-01",
-    "updatedAt": "2021-01-01"
+    "productId": 4,
+    "productName": "product 4",
+    "price": 534.4,
+    "count": 1
   }
 ]
+
 
   
