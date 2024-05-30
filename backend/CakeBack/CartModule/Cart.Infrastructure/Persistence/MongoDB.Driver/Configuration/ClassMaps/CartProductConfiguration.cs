@@ -22,6 +22,7 @@ public static class CartProductConfiguration
             cm.MapMember(c => c.Name);
             cm.MapMember(c => c.Image);
             cm.MapMember(c => c.Price);
+            cm.MapMember(c => c.Category);
         });
     }
 }

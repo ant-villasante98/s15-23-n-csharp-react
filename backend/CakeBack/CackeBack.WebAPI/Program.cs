@@ -22,7 +22,7 @@ builder.Services.ConfigureIdentityServices(builder.Configuration);
 
 builder.Services.AddCors(option =>
     {
-    option.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+        option.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 
     });
@@ -85,11 +85,8 @@ builder.Services.AddScoped<MockService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.UseHttpsRedirection();
 
