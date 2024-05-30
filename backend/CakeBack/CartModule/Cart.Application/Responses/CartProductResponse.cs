@@ -4,5 +4,6 @@ public record CartProductResponse(
     int ProductId,
     string ProductName,
     double Price,
-    int Count
+    int Count,
+    string Category
 );
