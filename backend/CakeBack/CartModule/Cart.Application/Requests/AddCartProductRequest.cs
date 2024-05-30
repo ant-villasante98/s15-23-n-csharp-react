@@ -5,5 +5,6 @@ public record AddCartProductRequest(
     int Count,
     double Price,
     string Name,
-    string Image
+    string Image,
+    string Category
 );

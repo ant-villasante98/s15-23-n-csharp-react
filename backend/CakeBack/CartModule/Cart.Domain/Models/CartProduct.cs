@@ -16,11 +16,11 @@ public class CartProduct
 
     public string Image { get; set; } = string.Empty;
 
-    //Todo: lista de categorias
+    public string Category { get; set; } = string.Empty;
 
-    public static CartProduct Create(int productId, string userId, int count, double price, string name, string image)
+    public static CartProduct Create(int productId, string userId, int count, double price, string name, string image, string category)
     {
-        return new CartProduct { Id = Guid.NewGuid(), UserId = userId, ProductId = productId, Count = count, Price = price, Name = name, Image = image };
+        return new CartProduct { Id = Guid.NewGuid(), UserId = userId, ProductId = productId, Count = count, Price = price, Name = name, Image = image, Category = category };
     }
 
     public void IncreaseCount(int count)
