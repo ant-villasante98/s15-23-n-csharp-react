@@ -17,7 +17,7 @@ public class ShoppingCartsController(ICartProductService _cartProductService) : 
     {
         List<CartProduct> products = await _cartProductService.GetCartByUserId(UserId);
         return Ok(
-            products.Select(p => new CartProductResponse(p.ProductId, p.Name, p.Price, p.Count, p.Category))
+            products.Select(p => new CartProductResponse(p.ProductId, p.Name, p.Price, p.Count, p.Category, p.Image))
             );
     }
 
