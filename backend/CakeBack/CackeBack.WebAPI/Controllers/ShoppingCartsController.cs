@@ -67,4 +67,12 @@ public class ShoppingCartsController(ICartProductService _cartProductService) : 
             );
         return NoContent();
     }
+    [HttpPatch("update-product")]
+    public async Task<IActionResult> UpdateProduct(UpdateCartProductRequest productRequest)
+    {
+        await _cartProductService.Update(
+            UserId, productRequest.Id, productRequest.Count
+            );
+        return NoContent();
+    }
 }
