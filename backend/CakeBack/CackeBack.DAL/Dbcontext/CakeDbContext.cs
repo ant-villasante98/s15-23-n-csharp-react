@@ -14,6 +14,7 @@ namespace CackeBack.DAL.Dbcontext
         }
 
         public DbSet<Category> categories { get; set; }
+        public DbSet<Order> Orders { get; set; }
 
     }
 }

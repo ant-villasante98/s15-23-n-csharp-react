@@ -51,7 +51,7 @@ public class Order
 
 public enum OrderState
 {
-    Created, // Orden creada
-    Paid, // Orden pagada
-    Canceled // Order cancelada
+    Created = 1, // Orden creada
+    Paid = 2, // Orden pagada
+    Canceled = 3 // Order cancelada
 }
