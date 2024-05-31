@@ -6,11 +6,12 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const [productQuantities, setProductQuantities] = useState({});
   const [cartIsEmpty, setCartIsEmpty] = useState(false);
+  const url ="https://s4kn44kn-9080.brs.devtunnels.ms" /*´${url}´*/ 
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts"); /*/products.json*/ 
+        const response = await axios.get("https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts");
         const data = response.data;
         setProducts(data);
 
@@ -27,20 +28,98 @@ const Cart = () => {
     fetchProducts();
   }, []);
 
+  const updateBackend = async (productId, quantity) => {
+    try {
+      console.log('Updating backend with productId:', productId, 'quantity:', quantity);
+      await axios.patch(`https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/update-product`, {
+      id: productId,  
+      count: quantity,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.error("Error al actualizar el carrito en el backend", error);
+    }
+  };
+
   const handleIncrementQuantity = (productId) => {
-    setProductQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [productId]: prevQuantities[productId] + 1,
-    }));
+    setProductQuantities((prevQuantities) => {
+      const updatedQuantities = {
+        ...prevQuantities,
+        [productId]: prevQuantities[productId] + 1,
+      };
+      updateBackend(productId, updatedQuantities[productId]);
+      return updatedQuantities;
+    });
   };
 
   const handleDecrementQuantity = (productId) => {
-    setProductQuantities((prevQuantities) => ({
-      ...prevQuantities,
-      [productId]:
-        prevQuantities[productId] > 0 ? prevQuantities[productId] - 1 : 0,
-    }));
+    setProductQuantities((prevQuantities) => {
+      const updatedQuantities = {
+        ...prevQuantities,
+        [productId]: prevQuantities[productId] > 0 ? prevQuantities[productId] - 1 : 0,
+      };
+      updateBackend(productId, updatedQuantities[productId]);
+      return updatedQuantities;
+    });
   };
+
+
+
+
+  const clearBackend = async (productId) => {
+    try {
+      console.log('Deleted backend:');
+      await axios.post(`https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/to-empty`, {
+        productId: productId,
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.error("Error al eliminar el producto en el backend", error);
+      throw error; // Re-lanza el error para que pueda ser manejado en handleClearCart
+    }
+  };
+  
+
+
+
+  const handleClearCart = async () => {
+    setProductQuantities({});
+    setProducts([]);
+    setCartIsEmpty();
+  
+    try {
+      // Vaciar el carrito en el backend
+      await clearBackend();
+  
+      // Notificar al backend que el carrito ha sido vaciado
+      await Promise.all(products.map((product) => clearBackend(product.productId)));
+    } catch (error) {
+      console.error("Error al vaciar el carrito en el backend", error);
+    }
+  };
+  
+
+  const removeProduct = async (productId) => {
+    try {
+      console.log('Product removed:', productId,);
+      await axios.delete(`https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/delete-product/${productId}`, {
+  
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.error("Error al remover el producto", error);
+    }
+  };
+
 
   const handleRemoveProduct = (productId) => {
     const updatedQuantities = { ...productQuantities };
@@ -51,13 +130,17 @@ const Cart = () => {
       (product) => product.productId !== productId
     );
     setProducts(updatedProducts);
+    removeProduct(productId);
+    
+
+
+   
+
+
+
   };
 
-  const handleClearCart = () => {
-    setProductQuantities({});
-    setProducts([]);
-    setCartIsEmpty(true);
-  };
+  
 
   const totalCartPrice = Object.keys(productQuantities).reduce(
     (total, productId) => {
@@ -68,6 +151,29 @@ const Cart = () => {
     },
     0
   );
+
+  const handleCheckout = async () => {
+    const order = {
+      ordersDetails: products.map((product) => ({
+        id: product.productId,
+        count: productQuantities[product.productId],
+      })),
+    };
+
+    console.log('Order to be sent:', JSON.stringify(order, null, 2));
+
+    try {
+      const response = await axios.post('https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/orders', order, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      console.log('Orden creada exitosamente:', response.data);
+    } catch (error) {
+      console.error('Error al crear la orden:', error);
+    }
+  };
 
   if (!products || products.length === 0) {
     return (
@@ -170,14 +276,17 @@ const Cart = () => {
         </p>
         <button
           className="w-22 h-10 text-xs font-medium rounded-md bg-red-700 text-white transition-all duration-500 ease-in-out hover:bg-transparent hover:border border-red-700 hover:text-black hover:scale-120-smooth md:w-28 md:h-30 lg:w-38 lg:h-38"
-          onClick={handleClearCart}
+          onClick={() => handleClearCart()}
         >
           Vaciar Carrito
         </button>
       </div>
 
       <div className="bg-purple-200 flex justify-around items-center content-center pt-5 pb-5">
-        <button className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth">
+        <button
+          className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
+          onClick={handleCheckout}
+        >
           Comprar
         </button>
       </div>
@@ -186,6 +295,8 @@ const Cart = () => {
 };
 
 export default Cart;
+
+
 
 
 
