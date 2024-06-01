@@ -285,7 +285,7 @@ const Cart = () => {
       <div className="bg-purple-200 flex justify-around items-center content-center pt-5 pb-5">
         <button
           className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
-          onClick={handleCheckout}
+          onClick={handleCheckout} //
         >
           Comprar
         </button>
