@@ -1,0 +1,20 @@
+https://webmssql.monsterasp.net
+db5370
+6Bs%@7FcPa5!
+
+
+
+JDBC URL: https://webmssql.monsterasp.net
+
+
+jdbc:sqlserver://;serverName=db5370.databaseasp.net;databaseName=master
+
+
+
+Server=db5370.databaseasp.net; Database=db5370; User Id=db5370; Password=********; Encrypt=False; MultipleActiveResultSets=True;
+
+
+https://cakeback.somee.com/
+cakeBack
+deivisonpenalver@gmail.com
+Abcd1234!
