@@ -76,12 +76,12 @@ namespace CackeBack.DAL.Repositories
             }
         }
 
-        public Task<bool> Eliminar(int id)
+        public async Task<bool> Eliminar(int id)
         {
             try
             {
 
-                var datos = await _dbContext.Products.Where(p => p.Id == id).FirstAsync();
+                var datos = await _dbContext.categories.Where(p => p.Id == id).FirstAsync();
 
                 if (datos == null)
                 {

@@ -3,6 +3,7 @@ using Cacke.Identity.Models;
 using CakeBack.Models.Entidades;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Task.Identity.Configuration;
 
 
 namespace Cacke.Identity

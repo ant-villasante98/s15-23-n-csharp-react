@@ -55,7 +55,7 @@ public class OrderService(IOrderRepository _orderRepository, IMediator _mediator
         Order? order = await GetById(id);
         order.State = state;
 
-        await _orderRepository.Actualizar(order);
+        await _orderRepository.Actualizar(id, order);
     }
 
     private List<OrderDetail> VerificarProducts(List<CreatingOrderDetailRequest> orderDetails)

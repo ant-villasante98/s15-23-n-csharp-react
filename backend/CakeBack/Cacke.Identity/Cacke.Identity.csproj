@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\Proyectos para solucion\Task\Task\Task.Models\Task.Models.csproj" />
+    <ProjectReference Include="..\CakeBack.Models\CakeBack.Models.csproj" />
   </ItemGroup>
 
 </Project>

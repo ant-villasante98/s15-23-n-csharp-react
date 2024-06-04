@@ -11,6 +11,11 @@ public class MockOrderRepository : IOrderRepository
         throw new NotImplementedException();
     }
 
+    public Task<bool> Actualizar(int id, Order modelo)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<bool> Eliminar(int id)
     {
         return Task.Run(() =>

@@ -21,6 +21,11 @@ public class OrderRepository(CakeDbContext _context) : IOrderRepository
         }
     }
 
+    public Task<bool> Actualizar(int id, Order modelo)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> Eliminar(int id)
     {
         var order = await Obtener(id);
