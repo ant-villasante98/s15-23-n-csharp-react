@@ -2,4 +2,6 @@ using MediatR;
 
 namespace Shared.MediatRImplement.Notifications;
 
-public record OrderCreationCompleted() : INotification;
+public record OrderCreationCompleted(
+    string UserId
+) : INotification;

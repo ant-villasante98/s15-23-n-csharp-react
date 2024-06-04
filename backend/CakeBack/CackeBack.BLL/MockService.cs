@@ -9,7 +9,7 @@ public class MockService(IMediator _mediator)
 {
     public async Task<List<CartDetail>> GetCartDetails(string Id)
     {
-        await _mediator.Publish(new OrderCreationCompleted());
+        await _mediator.Publish(new OrderCreationCompleted(Id));
         var response = await _mediator.Send(new GetUserCartRequest(Id));
         return response;
     }
