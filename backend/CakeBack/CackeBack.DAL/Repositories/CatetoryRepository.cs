@@ -1,6 +1,7 @@
 ﻿using CackeBack.DAL.Dbcontext;
 using CackeBack.DAL.Interface;
 using CakeBack.Models.Entidades;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,19 +20,90 @@ namespace CackeBack.DAL.Repositories
             _dbContext = dbContext;
         }
 
-        public Task<bool> Insertar(Category modelo)
-        {
-            throw new NotImplementedException();
+        public async Task<bool> Insertar(Category modelo)
+        { 
+            try
+            {
+
+                var exist = await _dbContext.categories.Where(p => p.Id == modelo.Id).FirstAsync();
+
+                if (exist != null)
+                {
+                    throw new Exception($"El producto ya existe{modelo.Nombre}");
+                }
+
+                _dbContext.Add(modelo);
+                await _dbContext.SaveChangesAsync();
+
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"el producto tiene un problema {modelo.Nombre}");
+
+            }
         }
 
-        public Task<bool> Actualizar(Category modelo)
+        public async Task<bool> Actualizar(int id, Category modelo)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var datos = await _dbContext.Products.Where(p => p.Id == id).FirstAsync();
+
+                if (datos != null)
+                {
+                    throw new Exception($"El producto ya existe{modelo.Nombre}");
+                }
+
+                datos.Name = modelo.Nombre;
+
+
+                _dbContext.Update(datos);
+
+                await _dbContext.SaveChangesAsync();
+
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"el producto tiene un problema {modelo.Nombre}");
+
+            }
         }
 
         public Task<bool> Eliminar(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+
+                var datos = await _dbContext.Products.Where(p => p.Id == id).FirstAsync();
+
+                if (datos == null)
+                {
+                    throw new Exception($"El producto no existe{id}");
+                }
+
+
+
+
+                _dbContext.Remove(id);
+
+                await _dbContext.SaveChangesAsync();
+
+
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"el producto tiene un problema {id}");
+
+            }
         }
 
 

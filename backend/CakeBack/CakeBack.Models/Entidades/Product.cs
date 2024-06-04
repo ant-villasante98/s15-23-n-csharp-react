@@ -16,11 +16,11 @@ namespace CakeBack.Models.Entidades
 
         public int CategoryId { get; set; }
 
-        public virtual ICollection<Category>? Products { get; set; }
+        public virtual ICollection<Category>? Categories { get; set; }
 
         public int SubCategoryId { get; set; }
 
-        public virtual ICollection<SubCategory> SubCategory { get; set; }
+        public virtual ICollection<SubCategory>? SubCategory { get; set; }
 
         public decimal precio { get; set; }
 

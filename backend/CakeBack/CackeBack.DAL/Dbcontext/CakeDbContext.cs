@@ -23,15 +23,14 @@ namespace CackeBack.DAL.Dbcontext
             base.OnModelCreating(builder);
             builder.ApplyConfiguration(new OrdersConfiguration());
         }
-<<<<<<< HEAD
+
 
         public DbSet<SubCategory> Subcategories { get; set; }
 
         public DbSet<Product> Products { get; set; }
 
 
-=======
->>>>>>> e3be572 (configuracion de ef para Orders)
+
 
     }
 }
