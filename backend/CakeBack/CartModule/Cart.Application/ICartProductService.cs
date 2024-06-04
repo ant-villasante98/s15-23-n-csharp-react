@@ -10,7 +10,7 @@ public interface ICartProductService
 
     Task ToEmptyCartByUserId(string userId);
 
-    Task Update(string userId, CartProduct product);
+    Task Update(string userId, int productId, int count);
 
     Task AddProduct(string userId, CartProduct product);
 

@@ -73,15 +73,15 @@ public class CartProductService(ICartProductRespository _cartProductRespository)
         throw new NotImplementedException();
     }
 
-    public async Task Update(string userId, CartProduct product)
+    public async Task Update(string userId, int productId, int count)
     {
-        CartProduct? productFound = await GetByProductIdAndUserId(userId, product.ProductId);
+        CartProduct? productFound = await GetByProductIdAndUserId(userId, productId);
         if (productFound is null)
         {
             return;
         }
 
-        productFound.Count = product.Count;
+        productFound.Count = count;
         await _cartProductRespository.UpdateAsync(productFound);
     }
 
