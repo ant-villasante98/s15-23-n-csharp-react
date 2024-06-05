@@ -9,6 +9,7 @@ using CackeBack.BLL;
 using eventPlannerBack.Models.Utilities;
 using CackeBack.DAL.Interface;
 using CackeBack.DAL.ExternalServices;
+using CackeBack;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -88,8 +89,10 @@ builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("
 
 // Iyeccion de denpendencias temporal
 builder.Services.AddScoped<ImageService>();
-builder.Services.AddScoped<IImageProductRepository, ImageProductRepository>();
+// builder.Services.AddScoped<IImageProductRepository, ImageProductRepository>();
 builder.Services.AddScoped<IUploadImageService, CloudinaryUploadImgService>();
+builder.Services.AddScoped<IImageProductRepository, MockImageRepository>();
+
 
 var app = builder.Build();
 

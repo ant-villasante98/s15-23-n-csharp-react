@@ -7,9 +7,6 @@ services:
       - "9080:8080"
     environment:
       - MongoDBSettings__ConnectionString=mongodb://mongo:password@cart-db:27017
-      - CloudinarySettings__CloudName=my-cloud
-      - CloudinarySettings__ApiKey=321859731299899
-      - CloudinarySettings__ApiSecret=fSJ0Mfmz29oM0FclViO6D95Ysk0
     depends_on:
       - cart-db
   cart-db:
