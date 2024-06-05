@@ -6,6 +6,9 @@ using Cart.Application;
 using Cart.Infrastructure;
 using Shared.MediatRImplement;
 using CackeBack.BLL;
+using eventPlannerBack.Models.Utilities;
+using CackeBack.DAL.Interface;
+using CackeBack.DAL.ExternalServices;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -81,6 +84,12 @@ builder.Services.AddMediatR(config =>
 // Mock 
 builder.Services.AddScoped<MockService>();
 
+builder.Services.Configure<CloudinarySetting>(builder.Configuration.GetSection("CloudinarySettings"));
+
+// Iyeccion de denpendencias temporal
+builder.Services.AddScoped<ImageService>();
+builder.Services.AddScoped<IImageProductRepository, ImageProductRepository>();
+builder.Services.AddScoped<IUploadImageService, CloudinaryUploadImgService>();
 
 var app = builder.Build();
 

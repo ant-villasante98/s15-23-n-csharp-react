@@ -1,4 +1,5 @@
 ﻿using CakeBack.Models.Entidades;
+using CakeBck.Mocels;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -15,5 +16,6 @@ namespace CackeBack.DAL.Dbcontext
 
         public DbSet<Category> categories { get; set; }
 
+        public DbSet<ImageProduct> ImageProducts { get; set; }
     }
 }
