@@ -1,17 +1,20 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
   const [productQuantities, setProductQuantities] = useState({});
   const [cartIsEmpty, setCartIsEmpty] = useState(false);
-  const url ="https://s4kn44kn-9080.brs.devtunnels.ms" /*´${url}´*/ 
+  const url = "https://s4kn44kn-9080.brs.devtunnels.ms"; /*´${url}´*/
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts");
+        const response = await axios.get(
+          "/products.json"
+        ); /*https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts*/
         const data = response.data;
         setProducts(data);
 
@@ -30,15 +33,24 @@ const Cart = () => {
 
   const updateBackend = async (productId, quantity) => {
     try {
-      console.log('Updating backend with productId:', productId, 'quantity:', quantity);
-      await axios.patch(`https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/update-product`, {
-      id: productId,  
-      count: quantity,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
+      console.log(
+        "Updating backend with productId:",
+        productId,
+        "quantity:",
+        quantity
+      );
+      await axios.patch(
+        `https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/update-product`,
+        {
+          id: productId,
+          count: quantity,
         },
-      });
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } catch (error) {
       console.error("Error al actualizar el carrito en el backend", error);
     }
@@ -59,67 +71,68 @@ const Cart = () => {
     setProductQuantities((prevQuantities) => {
       const updatedQuantities = {
         ...prevQuantities,
-        [productId]: prevQuantities[productId] > 0 ? prevQuantities[productId] - 1 : 0,
+        [productId]:
+          prevQuantities[productId] > 0 ? prevQuantities[productId] - 1 : 0,
       };
       updateBackend(productId, updatedQuantities[productId]);
       return updatedQuantities;
     });
   };
 
-
-
-
   const clearBackend = async (productId) => {
     try {
-      console.log('Deleted backend:');
-      await axios.post(`https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/to-empty`, {
-        productId: productId,
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
+      console.log("Deleted backend:");
+      await axios.post(
+        `https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/to-empty`,
+        {
+          productId: productId,
         },
-      });
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } catch (error) {
       console.error("Error al eliminar el producto en el backend", error);
       throw error; // Re-lanza el error para que pueda ser manejado en handleClearCart
     }
   };
-  
-
-
 
   const handleClearCart = async () => {
     setProductQuantities({});
     setProducts([]);
     setCartIsEmpty();
-  
+
     try {
       // Vaciar el carrito en el backend
       await clearBackend();
-  
+
       // Notificar al backend que el carrito ha sido vaciado
-      await Promise.all(products.map((product) => clearBackend(product.productId)));
+      await Promise.all(
+        products.map((product) => clearBackend(product.productId))
+      );
     } catch (error) {
       console.error("Error al vaciar el carrito en el backend", error);
     }
   };
-  
 
   const removeProduct = async (productId) => {
     try {
-      console.log('Product removed:', productId,);
-      await axios.delete(`https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/delete-product/${productId}`, {
-  
-      }, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      console.log("Product removed:", productId);
+      await axios.delete(
+        `https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/delete-product/${productId}`,
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
     } catch (error) {
       console.error("Error al remover el producto", error);
     }
   };
-
 
   const handleRemoveProduct = (productId) => {
     const updatedQuantities = { ...productQuantities };
@@ -131,23 +144,16 @@ const Cart = () => {
     );
     setProducts(updatedProducts);
     removeProduct(productId);
-    
-
-
-   
-
-
-
   };
-
-  
 
   const totalCartPrice = Object.keys(productQuantities).reduce(
     (total, productId) => {
       const product = products.find(
         (product) => product.productId === parseInt(productId)
       );
-      return total + (parseInt(product?.price) || 0) * productQuantities[productId];
+      return (
+        total + (parseInt(product?.price) || 0) * productQuantities[productId]
+      );
     },
     0
   );
@@ -160,18 +166,22 @@ const Cart = () => {
       })),
     };
 
-    console.log('Order to be sent:', JSON.stringify(order, null, 2));
+    console.log("Order to be sent:", JSON.stringify(order, null, 2));
 
     try {
-      const response = await axios.post('https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/orders', order, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await axios.post(
+        "https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/orders",
+        order,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      console.log('Orden creada exitosamente:', response.data);
+      console.log("Orden creada exitosamente:", response.data);
     } catch (error) {
-      console.error('Error al crear la orden:', error);
+      console.error("Error al crear la orden:", error);
     }
   };
 
@@ -185,13 +195,13 @@ const Cart = () => {
 
   return (
     <>
-      <div className="sm:w-full mx-auto bg-gray-50 rounded-md">
-        <h3 className="flex-1 justify-center content-center h-20 bg-gray-100 text-pink-400 text-center text-xl font-semibold border-b-2 border-slate-100 shadow-sm ">
-          Cart:{" "}
-        </h3>
-      </div>
-
-      <ul className="sm:pl-0 sm:pr-0 bg-purple-200 sm:grid sm:grid-cols-1 p-6 lg:p-10">
+      <div className="w-full ">
+      <ul className=" sm:pl-0 sm:pr-0 bg-purple-300 sm:grid sm:grid-cols-1 p-10 lg:p-10">
+        <div className="pb-5">
+          <h3 className=" flex justify-center items-end h-20 bg-purple-300 text-white  text-xl font-semibold md:text-2xl lg:text-3xl ">
+            Your Cart:{" "}
+          </h3>
+        </div>
         {products.map((product) => (
           <li
             key={product.productId}
@@ -230,7 +240,8 @@ const Cart = () => {
 
             <div className="sm:col-start-2 sm:row-start-5 md:col-start-4 md:row-start-2">
               <p className="sm:text-sm md:text-md font-bold text-pink-500 sm:text-center sm:justify-center lg:text-lg">
-                ${parseInt(product.price) * productQuantities[product.productId]}
+                $
+                {parseInt(product.price) * productQuantities[product.productId]}
               </p>
             </div>
 
@@ -268,21 +279,21 @@ const Cart = () => {
             </button>
           </li>
         ))}
+
+        <div className=" border-b border-purple-100  total flex justify-between pl-3 pr-3 items-center h-20 pb-2  shadow-sm  lg:h-60 lg:justify-evenly">
+          <p className=" text-lg text-pink-500 drop-shadow-xl  font-semibold md:text-2xl">
+            Total del Carrito: ${totalCartPrice}
+          </p>
+          <button
+            className="w-22 h-10 text-xs font-medium rounded-md bg-red-700 text-white transition-all duration-500 ease-in-out hover:bg-transparent hover:border border-red-700 hover:text-black hover:scale-120-smooth md:w-28 md:h-30 lg:w-38 lg:h-38"
+            onClick={() => handleClearCart()}
+          >
+            Vaciar Carrito
+          </button>
+        </div>
       </ul>
 
-      <div className=" bg-pink-100 total flex justify-between pl-3 pr-3 items-center h-20 pb-2  shadow-sm border-gray-100 lg:h-60 lg:justify-evenly">
-        <p className=" text-lg text-pink-600 font-semibold md:text-2xl">
-          Total del Carrito: ${totalCartPrice}
-        </p>
-        <button
-          className="w-22 h-10 text-xs font-medium rounded-md bg-red-700 text-white transition-all duration-500 ease-in-out hover:bg-transparent hover:border border-red-700 hover:text-black hover:scale-120-smooth md:w-28 md:h-30 lg:w-38 lg:h-38"
-          onClick={() => handleClearCart()}
-        >
-          Vaciar Carrito
-        </button>
-      </div>
-
-      <div className="bg-purple-200 flex justify-around items-center content-center pt-5 pb-5">
+      <div className="bg-purple-300 flex justify-around items-center content-center pt-5 pb-5">
         <button
           className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
           onClick={handleCheckout} //
@@ -290,29 +301,19 @@ const Cart = () => {
           Comprar
         </button>
       </div>
+      </div>
     </>
   );
 };
 
 export default Cart;
 
-
-
-
-
-
-
-
-
-
-
-
-{/* <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#db6699" fill="none" stroke-linecap="round" stroke-linejoin="round">
+{
+  /* <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#db6699" fill="none" stroke-linecap="round" stroke-linejoin="round">
   <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
   <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
   <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
   <path d="M17 17h-11v-14h-2" />
   <path d="M6 5l14 1l-1 7h-13" />
-</svg> */}
-
-
+</svg> */
+}
