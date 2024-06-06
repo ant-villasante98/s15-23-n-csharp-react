@@ -14,6 +14,14 @@ module.exports = {
         cuaternario: "#FFD6EB",
       },
     },
+
+    screens:{
+      'sm': '300px',
+      'md': '600px',
+      'lg': '1024px',
+      'xl': '1200px',
+      '2xl': '1536px',
+     }
   },
   plugins: [],
 };
