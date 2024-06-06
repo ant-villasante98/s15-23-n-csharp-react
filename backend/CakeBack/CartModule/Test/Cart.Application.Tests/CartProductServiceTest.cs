@@ -284,7 +284,7 @@ public class CartProductServiceTest
 
         // Act
 
-        await cartProductService.Update(userId, cartProduct);
+        await cartProductService.Update(userId, cartProduct.ProductId, cartProduct.Count);
 
         // Assert
 

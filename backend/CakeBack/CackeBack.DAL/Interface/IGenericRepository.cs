@@ -10,7 +10,7 @@ namespace CackeBack.DAL.Interface
      {
             Task<bool> Insertar(TEntityModel modelo);
 
-            Task<bool> Actualizar(TEntityModel modelo);
+            Task<bool> Actualizar(int id, TEntityModel modelo);
 
             Task<bool> Eliminar(int id);
 

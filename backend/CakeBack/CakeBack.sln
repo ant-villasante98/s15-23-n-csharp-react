@@ -31,6 +31,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SharedModule", "SharedModul
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared.MediatRImplement", "SharedModule\Shared.MediatRImplement\Shared.MediatRImplement.csproj", "{59D2566E-23A0-4420-807D-B50A7142E81F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{11647115-A662-4F93-8CBE-0080DF4782F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Cake.BLL", "Test\Test.Cake.BLL\Test.Cake.BLL.csproj", "{DC5BBD47-33A9-4EE4-894B-0B4CC2A5CA17}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +81,10 @@ Global
 		{59D2566E-23A0-4420-807D-B50A7142E81F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59D2566E-23A0-4420-807D-B50A7142E81F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59D2566E-23A0-4420-807D-B50A7142E81F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC5BBD47-33A9-4EE4-894B-0B4CC2A5CA17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC5BBD47-33A9-4EE4-894B-0B4CC2A5CA17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC5BBD47-33A9-4EE4-894B-0B4CC2A5CA17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC5BBD47-33A9-4EE4-894B-0B4CC2A5CA17}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +100,7 @@ Global
 		{E6B6B573-6CFB-47AF-8267-302C6BE76311} = {8F49B1C0-3409-45CB-9E35-C5B3A9D9AEDE}
 		{1D119281-E0A4-4333-912B-A70283083C9A} = {E6B6B573-6CFB-47AF-8267-302C6BE76311}
 		{59D2566E-23A0-4420-807D-B50A7142E81F} = {5265CE2E-D603-4A91-92BF-1B5B3758A395}
+		{DC5BBD47-33A9-4EE4-894B-0B4CC2A5CA17} = {11647115-A662-4F93-8CBE-0080DF4782F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B321D16A-4B60-43D1-A871-C06A99E191CD}

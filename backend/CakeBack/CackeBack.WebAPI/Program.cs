@@ -71,6 +71,8 @@ builder.Services.AddSwaggerGen(options =>
 builder.Services.AddShoppingCartApplication(builder.Configuration);
 builder.Services.AddShoppingCartInfrastructure(builder.Configuration);
 
+builder.Services.AddOrders();
+
 // Mediatr configuration
 builder.Services.AddMediatR(config =>
 {
@@ -85,6 +87,9 @@ builder.Services.AddScoped<MockService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.UseSwagger();
 app.UseSwaggerUI();
 
