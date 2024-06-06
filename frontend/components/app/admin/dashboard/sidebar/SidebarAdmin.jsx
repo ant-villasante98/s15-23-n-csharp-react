@@ -8,8 +8,8 @@ import {
   MdBarChart,
   MdLogout
 } from "react-icons/md";
-import MenuLink from './menuLink/menuLink';
 import Image from 'next/image';
+import MenuLink from './menuLink/MenuLink';
 
 const menuItems = [
   {

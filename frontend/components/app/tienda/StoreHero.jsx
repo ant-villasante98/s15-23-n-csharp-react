@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CakeWaves } from "./cakeWaves";
+import { CakeWaves } from "./CakeWaves";
 
 export const StoreHero = () => {
   return (
