@@ -4,7 +4,7 @@ import React from 'react'
 const Transactions = () => {
   return (
     <div className='p-5 rounded-lg'>
-      <h2 className='mb-5 font-extralight'>Ultimas Transacciones</h2>
+      <h2 className='mb-5 font-bold'>Ultimas Transacciones</h2>
       <div className='overflow-hidden rounded-2xl'>
         <table className='w-full'>
           <thead className='text-xs text-white uppercase bg-primario'>

@@ -13,15 +13,20 @@ module.exports = {
         terciario: "#B892FF",
         cuaternario: "#FFD6EB",
       },
+      fontSize: {
+        '7xl': '5rem',
+        '8xl': '6rem',
+        '9xl': '7rem',
+      },
     },
 
-    screens:{
-      'sm': '300px',
-      'md': '600px',
-      'lg': '1024px',
-      'xl': '1200px',
-      '2xl': '1536px',
-     }
+    screens: {
+      sm: "300px",
+      md: "600px",
+      lg: "1024px",
+      xl: "1200px",
+      "2xl": "1536px",
+    },
   },
   plugins: [],
 };

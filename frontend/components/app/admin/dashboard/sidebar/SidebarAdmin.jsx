@@ -8,8 +8,8 @@ import {
   MdBarChart,
   MdLogout
 } from "react-icons/md";
-import MenuLink from './menuLink/menuLink';
 import Image from 'next/image';
+import MenuLink from './menuLink/MenuLink';
 
 const menuItems = [
   {
@@ -21,7 +21,7 @@ const menuItems = [
         icon: <MdDashboard />
       },
       {
-        title: "Usuarios",
+        title: "Clientes",
         path: "/dashboard/usuarios",
         icon: <MdSupervisedUserCircle />
       },
@@ -31,8 +31,8 @@ const menuItems = [
         icon: <MdOutlineProductionQuantityLimits />
       },
       {
-        title: "Transacciones",
-        path: "/dashboard/transacciones",
+        title: "Ordenes",
+        path: "/dashboard/ordenes",
         icon: <MdOutlinePayments />
       },
     ]
@@ -52,7 +52,7 @@ const menuItems = [
     list: [
       {
         title: "Ventas",
-        path: "/ventas",
+        path: "/dashboard/ventas",
         icon: <MdBarChart />
       },
     ]

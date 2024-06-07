@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React from 'react';
 import { MdDelete, MdEdit } from 'react-icons/md';
 
-const UsersPage = () => {
+const Ordenes = () => {
   return (
     <div className='flex flex-col gap-5'>
       <div className='flex content-start'>
@@ -15,7 +15,8 @@ const UsersPage = () => {
           <thead className='text-xs text-white uppercase bg-primario'>
             <tr>
               <th className='p-2 '>Nombre</th>
-              <th className='p-2 '>Email</th>
+              <th className='p-2 '>Estado</th>
+              <th className='p-2 '>Fecha</th>
               <th className='p-2 '>Monto</th>
               <th className='p-2 '>Acciones</th>
             </tr>
@@ -35,7 +36,12 @@ const UsersPage = () => {
                 </div>
               </td>
               <td className=' text-center'>
-                Test@gmail.com
+                <span className='rounded-md p-1 font-[14px] text-white bg-red-500'>
+                  Pendiente
+                </span>
+              </td>
+              <td className='p-2  text-center'>
+                29-05-2014
               </td>
               <td className='p-2  text-center'>
                 $100
@@ -65,7 +71,12 @@ const UsersPage = () => {
                 </div>
               </td>
               <td className=' text-center'>
-                Test2@gmail.com
+                <span className='rounded-md p-1 font-[14px] text-white bg-green-500'>
+                  Completado
+                </span>
+              </td>
+              <td className='p-2  text-center'>
+                29-05-2014
               </td>
               <td className='p-2  text-center'>
                 $200
@@ -95,7 +106,12 @@ const UsersPage = () => {
                 </div>
               </td>
               <td className=' text-center'>
-                Test3@gmail.com
+                <span className='rounded-md p-1 font-[14px] text-white bg-yellow-500'>
+                  En Proceso
+                </span>
+              </td>
+              <td className='p-2  text-center'>
+                29-05-2014
               </td>
               <td className='p-2  text-center'>
                 $150
@@ -119,4 +135,4 @@ const UsersPage = () => {
   )
 }
 
-export default UsersPage;
+export default Ordenes;
