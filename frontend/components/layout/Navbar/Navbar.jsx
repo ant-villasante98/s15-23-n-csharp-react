@@ -5,42 +5,42 @@ import NavMobile from "./NavMobile";
 import { useEffect } from "react";
 
 const navLinks = [
-   { title: "Productos", path: "/productos", offset: -55 },
+   { title: "Inicio", path: "/", offset: -55 },
+   { title: "Tienda", path: "/tienda", offset: -55 },
    { title: "Carrito", path: "/cart", offset: -130 },
    { title: "Iniciar Sesion", path: "/login", offset: -130 },
-   { title: "Tienda", path: "/tienda", offset: -55 },
 ];
 
 export default function Navbar() {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const [scrolling, setScrolling] = useState(false);
+   const [navbarOpen, setNavbarOpen] = useState(false);
+   const [scrolling, setScrolling] = useState(false);
 
-  const handleScroll = () => {
-    const offset = window.scrollY;
-    setScrolling(offset > 0);
-  };
+   const handleScroll = () => {
+      const offset = window.scrollY;
+      setScrolling(offset > 0);
+   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const scrollToSection = (path, offset) => {
-    if (path.startsWith("/")) {
-      window.location.href = path;
-    } else {
-      const element = document.querySelector(path);
-      if (element) {
-        const offsetTop = element.offsetTop + offset;
-        window.scrollTo({
-          top: offsetTop,
-          behavior: "smooth",
-        });
-        setNavbarOpen(false);
+   useEffect(() => {
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+         window.removeEventListener("scroll", handleScroll);
+      };
+   }, []);
+   const scrollToSection = (path, offset) => {
+      if (path.startsWith("/")) {
+         window.location.href = path;
+      } else {
+         const element = document.querySelector(path);
+         if (element) {
+            const offsetTop = element.offsetTop + offset;
+            window.scrollTo({
+               top: offsetTop,
+               behavior: "smooth",
+            });
+            setNavbarOpen(false);
+         }
       }
-    }
-  };
+   };
    return (
       <nav
          className={`fixed top-0 left-0 right-0 z-50 lg:mb-4 pb-4 shadow-sticky pr-12 ${
@@ -59,10 +59,10 @@ export default function Navbar() {
                   /> */}
                   <span className="text-transparent bg-[#043D7A] bg-clip-text "></span>
                   <span
-                     className=" text-[#ffffff] bg-clip-text hover:text-[#E22C53]"
-                     style={{ fontFamily: "Sometype Mono, monospace" }}
+                     className=" text-[#ffffff] bg-clip-text hover:text-[#E22C53] font-Elegant2"
+                     
                   >
-                     Panimar
+                     Baking Love
                   </span>
                </p>
             </a>

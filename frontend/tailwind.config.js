@@ -13,6 +13,11 @@ module.exports = {
         terciario: "#B892FF",
         cuaternario: "#FFD6EB",
       },
+      fontSize: {
+        '7xl': '5rem',
+        '8xl': '6rem',
+        '9xl': '7rem',
+      },
     },
 
     screens: {
