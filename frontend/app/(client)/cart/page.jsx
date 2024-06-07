@@ -1,4 +1,4 @@
-import Cart from "@/components/layout/Navbar/Cart";
+import Cart from "./Cart";
 
 
 
