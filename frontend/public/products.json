@@ -1,0 +1,16 @@
+[
+  {
+    "productId": 3,
+    "productName": "product 2",
+    "image": "/Brownie1.jpg",
+    "price": 4.4,
+    "count": 6
+  },
+  {
+    "productId": 4,
+    "productName": "product 4",
+    "image": "/Cupcake1.jpg",
+    "price": 534.4,
+    "count": 1
+  }
+]
