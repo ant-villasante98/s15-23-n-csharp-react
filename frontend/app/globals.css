@@ -13,3 +13,23 @@
 .font-DancingScript {
   font-family: "DancingScript", sans-serif;
 }
+
+/* New font */
+@font-face {
+  font-family: "Elegant";
+  src: url(/fonts/elegant_4/ElegantDEMO.otf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-Elegant {
+  font-family: "Elegant", sans-serif;
+}
+
+@layer utilities {
+  .bg-blur-xsm {
+    backdrop-filter: blur(1px);
+  }
+}
+
