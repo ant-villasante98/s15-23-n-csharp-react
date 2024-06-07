@@ -194,8 +194,9 @@ const Cart = () => {
   }
 
   return (
-    <>
-      <div className="w-full bg-purple-300">
+     
+    <div className="bg-purple-300 min-h-screen">
+        <div className="w-full bg-purple-300">
         <h3 className=" flex justify-center items-end h-20 bg-purple-300 text-white  text-xl font-semibold md:text-2xl lg:text-3xl ">
           Your Cart:{" "}
         </h3>
@@ -319,7 +320,8 @@ const Cart = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
+    
   );
 };
 
