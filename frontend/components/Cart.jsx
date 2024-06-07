@@ -7,13 +7,13 @@ const Cart = () => {
   const [products, setProducts] = useState([]);
   const [productQuantities, setProductQuantities] = useState({});
   const [cartIsEmpty, setCartIsEmpty] = useState(false);
-  const url = "https://s4kn44kn-9080.brs.devtunnels.ms"; /*´${url}´*/
+  const url = "https://cakeback.somee.com";
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(
-          "/products.json"
+          `${url}/api/v1/shopping-carts`
         ); /*https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts*/
         const data = response.data;
         setProducts(data);
@@ -40,7 +40,7 @@ const Cart = () => {
         quantity
       );
       await axios.patch(
-        `https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/update-product`,
+        `${url}/api/v1/shopping-carts/update-product`, //updateProduct
         {
           id: productId,
           count: quantity,
@@ -83,7 +83,7 @@ const Cart = () => {
     try {
       console.log("Deleted backend:");
       await axios.post(
-        `https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/to-empty`,
+        `${url}/api/v1/shopping-carts/to-empty`, //cartEmpty
         {
           productId: productId,
         },
@@ -121,7 +121,7 @@ const Cart = () => {
     try {
       console.log("Product removed:", productId);
       await axios.delete(
-        `https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts/delete-product/${productId}`,
+        `${url}/api/v1/shopping-carts/delete-product/${productId}`, //removeProduct
         {},
         {
           headers: {
@@ -170,7 +170,7 @@ const Cart = () => {
 
     try {
       const response = await axios.post(
-        "https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/orders",
+        `${url}/api/v1/orders`, //Orders
         order,
         {
           headers: {
@@ -194,18 +194,17 @@ const Cart = () => {
   }
 
   return (
-    <>
-      <div className="w-full ">
-        <ul className=" sm:pl-0 sm:pr-0 bg-purple-300 sm:grid sm:grid-cols-1 p-10 lg:p-10">
-          <div className="pb-5">
-            <h3 className=" flex justify-center items-end h-20 bg-purple-300 text-white  text-xl font-semibold md:text-2xl lg:text-3xl ">
-              Your Cart:{" "}
-            </h3>
-          </div>
+     
+    <div className="bg-purple-300 min-h-screen">
+        <div className="w-full bg-purple-300">
+        <h3 className=" flex justify-center items-end h-20 bg-purple-300 text-white  text-xl font-semibold md:text-2xl lg:text-3xl ">
+          Your Cart:{" "}
+        </h3>
+        <ul className="m-10 sm:pl-0 sm:pr-0 bg-white rounded-xl  sm:grid sm:grid-cols-1 p-10 lg:p-10">
           {products.map((product) => (
             <li
               key={product.productId}
-              className=" items-center bg-pink-100 rounded-md mt-2 sm:h-64 content-between shadow-lg  border-pink-200 sm:grid sm:grid-cols-4 sm:grid-rows-5 md:auto-rows-auto sm:gap-x-6 sm:justify-items-center sm:mb-8 md:justify-between lg:justify-around md:grid-cols-5 md:grid-rows-3 md:h-auto md:pt-4 md:pb-4 md:gap-x-4 md:items-center md:content-center lg:grid lg:grid-cols-5 lg:items-center  "
+              className=" gap-2 w-full items-center bg-white sm:h-64 content-between border-b  sm:grid sm:grid-cols-4 sm:grid-rows-5 md:auto-rows-auto  sm:justify-items-center md:justify-between lg:justify-around md:grid-cols-5 md:grid-rows-3 md:h-auto  md:items-center md:content-center lg:grid lg:grid-cols-5 lg:items-center  "
             >
               <img
                 src={product.image}
@@ -281,7 +280,7 @@ const Cart = () => {
             </li>
           ))}
 
-          <div className=" border-b border-purple-100  total flex justify-between pl-3 pr-3 items-center h-20 pb-2  shadow-sm  lg:h-60 lg:justify-evenly">
+          <div className="  total flex justify-between pl-3 pr-3 items-center h-20 pb-2   md:justify-around lg:h-60 lg:justify-evenly">
             <p className=" text-lg text-pink-500 drop-shadow-xl  font-semibold md:text-2xl">
               Total del Carrito: ${totalCartPrice}
             </p>
@@ -321,18 +320,10 @@ const Cart = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
+    
   );
 };
 
 export default Cart;
 
-{
-  /* <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#db6699" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-  <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-  <path d="M17 17h-11v-14h-2" />
-  <path d="M6 5l14 1l-1 7h-13" />
-</svg> */
-}
