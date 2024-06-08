@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Image from "next/image";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -180,15 +182,45 @@ const Cart = () => {
       );
 
       console.log("Orden creada exitosamente:", response.data);
+      toast.success(" Procediendo al checkout.", {
+        position: "top-center",
+        
+      });
     } catch (error) {
       console.error("Error al crear la orden:", error);
+      toast.error('Hubo un error al procesar tu pedido. Por favor, intenta nuevamente.', {
+        position: "top-center"
+      });
     }
   };
 
+  //redirige a la pagina donde pida los datos o de MP
+
   if (!products || products.length === 0) {
     return (
-      <div className="text-center text-gray-500 bg-white rounded-lg min-h-screen w-full flex justify-center items-center">
-        No hay productos en el carrito
+      <div className=" text-center text-gray-500 bg-white rounded-lg min-h-screen w-full flex flex-col justify-center items-center gap-10">
+        <h1 className="text-xl">No hay productos en el carrito</h1>
+        <h3>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-shopping-cart-exclamation"
+            width="60"
+            height="60"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+            <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+            <path d="M15 17h-9v-14h-2" />
+            <path d="M6 5l14 1l-.854 5.976m-2.646 1.024h-10.5" />
+            <path d="M19 16v3" />
+            <path d="M19 22v.01" />
+          </svg>
+        </h3>
       </div>
     );
   }
@@ -307,17 +339,16 @@ const Cart = () => {
           </button>
         </div>
 
-        <div className=" flex justify-around items-center content-center pt-5 pb-5">
-        <button
-          className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
-          onClick={handleCheckout} //
-        >
-          Comprar
-        </button>
-      </div>
+        <div className=" flex flex-col justify-around items-center content-center pt-5 pb-5">
+          <button
+            className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
+            onClick={handleCheckout} //
+          >
+            Checkout
+          </button>
+          <ToastContainer />
+        </div>
       </ul>
-
-      
     </>
   );
 };
