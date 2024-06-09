@@ -1,5 +1,4 @@
 import { $Color } from "@/stores/colors";
-import { button } from "@nextui-org/theme";
 import { FastAverageColor } from "fast-average-color";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
