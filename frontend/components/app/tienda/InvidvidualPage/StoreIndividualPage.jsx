@@ -7,6 +7,8 @@ import { useStoreIndividualPage } from "./hooks/useStoreIndividualPage";
 import { useEffect, useState } from "react";
 import { $Products } from "@/stores/products";
 import { ProductCard } from "../ProductCard";
+import toast from "react-hot-toast";
+import { addToCart } from "./services/product.service";
 
 export const StoreIndividualPage = ({ id }) => {
   const color = useStore($Color);
@@ -23,6 +25,11 @@ export const StoreIndividualPage = ({ id }) => {
       setRecommendedProducts(randomProducts);
     }
   }, [product]);
+
+  const handleAddToCart = async () => {
+    /* await addToCart(product.id, 1); */
+    toast.success("Producto agregado al carrito");
+  };
 
   if (!product) {
     return (
@@ -53,7 +60,7 @@ export const StoreIndividualPage = ({ id }) => {
             <p className="text-slate-900 text-base mt-4">
               {product.description}
             </p>
-            <Button className="mt-4" color="primary">
+            <Button onPress={handleAddToCart} className="mt-4" color="primary">
               Agregar al carrito
             </Button>
           </div>
