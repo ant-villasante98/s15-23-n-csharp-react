@@ -1,0 +1,2 @@
+Add-Migration Initial -context CakeDbContext
+update-database -context CakeDbContext

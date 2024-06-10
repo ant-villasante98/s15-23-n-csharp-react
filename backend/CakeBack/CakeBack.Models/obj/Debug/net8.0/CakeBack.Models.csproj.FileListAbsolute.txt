@@ -1,0 +1,12 @@
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\bin\Debug\net8.0\CakeBack.Models.deps.json
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\bin\Debug\net8.0\CakeBack.Models.dll
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\bin\Debug\net8.0\CakeBack.Models.pdb
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\CakeBack.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\CakeBack.Models.AssemblyInfoInputs.cache
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\CakeBack.Models.AssemblyInfo.cs
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\CakeBack.Models.csproj.CoreCompileInputs.cache
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\CakeBack.Models.sourcelink.json
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\CakeBack.Models.dll
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\refint\CakeBack.Models.dll
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\CakeBack.Models.pdb
+C:\Users\Indatech\Documents\Desarrollo\Proyectos No_contry\s15-23-n-csharp-react2\backend\CakeBack\CakeBack.Models\obj\Debug\net8.0\ref\CakeBack.Models.dll

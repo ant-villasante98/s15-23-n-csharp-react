@@ -1,0 +1,6 @@
+@CackeBack.API_HostAddress = http://localhost:5047
+
+GET {{CackeBack.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
