@@ -1,25 +1,31 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import axios from "axios";
-import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import {
+  getLocalStorage,
+  setLocalStorage,
+} from "@/components/app/tienda/utils/handleLocalStorage";
 
-  const Cart = () => {
+const Cart = () => {
   const [products, setProducts] = useState([]);
   const [productQuantities, setProductQuantities] = useState({});
   const [cartIsEmpty, setCartIsEmpty] = useState(false);
   const url = "https://cakeback.somee.com";
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get( "/products.json"
-         /*  `${url}/api/v1/shopping-carts` */
-        ); /*https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts*/
-        const data = response.data;
+        /* const response = await axios.get( "/products.json"
+          `${url}/api/v1/shopping-carts`
+        );https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts
+        const data = response.data; */
+
+        //Leo: Agregue la logica para obtener los productos del carrito desde el localStorage
+        const data = getLocalStorage("cart") || [];
         setProducts(data);
 
         const initialQuantities = {};
@@ -34,6 +40,11 @@ import toast from "react-hot-toast";
 
     fetchProducts();
   }, []);
+
+  //Leo: Actualizo el localStorage cada vez que se actualiza el carrito
+  useEffect(() => {
+    setLocalStorage("cart", products);
+  }, [products]);
 
   const updateBackend = async (productId, quantity) => {
     try {
@@ -69,6 +80,15 @@ import toast from "react-hot-toast";
       updateBackend(productId, updatedQuantities[productId]);
       return updatedQuantities;
     });
+
+    //Leo: Actualizo el producto con la nueva cantidad
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.productId === productId
+          ? { ...product, count: product.count + 1 }
+          : product
+      )
+    );
   };
 
   const handleDecrementQuantity = (productId) => {
@@ -81,6 +101,15 @@ import toast from "react-hot-toast";
       updateBackend(productId, updatedQuantities[productId]);
       return updatedQuantities;
     });
+
+    //Leo: Actualizo el producto con la nueva cantidad
+    setProducts((prevProducts) =>
+      prevProducts.map((product) =>
+        product.productId === productId
+          ? { ...product, count: product.count - 1 }
+          : product
+      )
+    );
   };
 
   const clearBackend = async (productId) => {
@@ -107,6 +136,9 @@ import toast from "react-hot-toast";
     setProductQuantities({});
     setProducts([]);
     setCartIsEmpty();
+
+    //Leo:vaciar el carrito en el localStorage
+    setLocalStorage("cart", []);
 
     try {
       // Vaciar el carrito en el backend
@@ -170,8 +202,6 @@ import toast from "react-hot-toast";
       })),
     };
 
-   
-
     console.log("Order to be sent:", JSON.stringify(order, null, 2));
 
     try {
@@ -199,7 +229,7 @@ import toast from "react-hot-toast";
       );
     }
 
-    router.push("/cart/form")
+    router.push("/cart/form");
   };
 
   //redirige a la pagina donde pida los datos o de MP
@@ -354,17 +384,12 @@ import toast from "react-hot-toast";
         </div>
 
         <div className=" flex flex-col justify-around items-center content-center pt-5 pb-5">
-          
-         
-            <button
-              className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
-              onClick={handleCheckout} //
-            >
-              Checkout
-            </button>
-         
-
-      
+          <button
+            className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
+            onClick={handleCheckout} //
+          >
+            Checkout
+          </button>
         </div>
       </ul>
     </>
@@ -372,6 +397,3 @@ import toast from "react-hot-toast";
 };
 
 export default Cart;
-
-
-
