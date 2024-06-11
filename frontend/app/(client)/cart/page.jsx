@@ -12,9 +12,7 @@ export default function ShoppingCart() {
   return (
     <main className="">
      <Cart/>
-
-
-    </main>
+     </main>
   );
 }
 

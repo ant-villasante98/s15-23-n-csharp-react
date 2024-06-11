@@ -1,22 +1,23 @@
 "use client";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Image from "next/image";
-import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
-const Cart = () => {
+  const Cart = () => {
   const [products, setProducts] = useState([]);
   const [productQuantities, setProductQuantities] = useState({});
   const [cartIsEmpty, setCartIsEmpty] = useState(false);
   const url = "https://cakeback.somee.com";
+  const router = useRouter()
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get(
-          `${url}/api/v1/shopping-carts`
+        const response = await axios.get( "/products.json"
+         /*  `${url}/api/v1/shopping-carts` */
         ); /*https://s4kn44kn-9080.brs.devtunnels.ms/api/v1/shopping-carts*/
         const data = response.data;
         setProducts(data);
@@ -169,6 +170,8 @@ const Cart = () => {
       })),
     };
 
+   
+
     console.log("Order to be sent:", JSON.stringify(order, null, 2));
 
     try {
@@ -185,14 +188,18 @@ const Cart = () => {
       console.log("Orden creada exitosamente:", response.data);
       toast.success(" Procediendo al checkout.", {
         position: "top-center",
-        
       });
     } catch (error) {
       console.error("Error al crear la orden:", error);
-      toast.error('Hubo un error al procesar tu pedido. Por favor, intenta nuevamente.', {
-        position: "top-center"
-      });
+      toast.error(
+        "Hubo un error al procesar tu pedido. Por favor, intenta nuevamente.",
+        {
+          position: "top-center",
+        }
+      );
     }
+
+    router.push("/cart/form")
   };
 
   //redirige a la pagina donde pida los datos o de MP
@@ -204,15 +211,15 @@ const Cart = () => {
         <h3>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-shopping-cart-exclamation"
+            className="icon icon-tabler icon-tabler-shopping-cart-exclamation"
             width="60"
             height="60"
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
             <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
@@ -224,9 +231,10 @@ const Cart = () => {
         </h3>
 
         <Link href="/tienda" passHref>
-        <button className="mt-10 bg-pink-400 h-12 w-36 rounded-lg text-white">Ir a la tienda</button>
-       </Link>
-        
+          <button className="mt-10 bg-pink-400 h-12 w-36 rounded-lg text-white">
+            Ir a la tienda
+          </button>
+        </Link>
       </div>
     );
   }
@@ -325,15 +333,15 @@ const Cart = () => {
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="icon icon-tabler icon-tabler-shopping-cart-x sm:w-8 sm:h-8 md:w-10 md:h-10"
+              className="icon icon-tabler icon-tabler-shopping-cart-x sm:w-8 sm:h-8 md:w-10 md:h-10"
               width="40"
               height="40"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M4 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
@@ -346,13 +354,17 @@ const Cart = () => {
         </div>
 
         <div className=" flex flex-col justify-around items-center content-center pt-5 pb-5">
-          <button
-            className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
-            onClick={handleCheckout} //
-          >
-            Checkout
-          </button>
-          <ToastContainer />
+          
+         
+            <button
+              className=" w-40 h-14 text-lg font-medium rounded-md bg-pink-500 text-white transition-all duration-500 ease-in-out hover:text-pink-500 hover:border hover:border-pink-500 hover:bg-pink-200 hover:scale-120-smooth"
+              onClick={handleCheckout} //
+            >
+              Checkout
+            </button>
+         
+
+      
         </div>
       </ul>
     </>
@@ -361,12 +373,5 @@ const Cart = () => {
 
 export default Cart;
 
-{
-  /* <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shopping-cart" width="22" height="22" viewBox="0 0 24 24" stroke-width="1.5" stroke="#db6699" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-  <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
-  <path d="M17 17h-11v-14h-2" />
-  <path d="M6 5l14 1l-1 7h-13" />
-</svg> */
-}
+
+
