@@ -9,12 +9,29 @@ import { $Products } from "@/stores/products";
 import { ProductCard } from "../ProductCard";
 import toast from "react-hot-toast";
 import { addToCart } from "./services/product.service";
+import { getLocalStorage } from "../utils/handleLocalStorage";
+import Link from "next/link";
 
 export const StoreIndividualPage = ({ id }) => {
   const color = useStore($Color);
   const { product } = useStoreIndividualPage({ id });
   const [recommendedProducts, setRecommendedProducts] = useState(null);
   const products = useStore($Products);
+  const [cart, setCart] = useState([]);
+  const [quantity, setQuantity] = useState(0);
+  const [updateCart, setUpdateCart] = useState(false);
+  useEffect(() => {
+    const getCart = getLocalStorage("cart");
+    if (getCart) {
+      setCart(getCart);
+    }
+  }, [updateCart]);
+  useEffect(() => {
+    const productQuantity = cart.find((p) => p.productId === parseInt(id));
+    if (productQuantity) {
+      setQuantity(productQuantity.count);
+    }
+  }, [cart]);
 
   useEffect(() => {
     if (product && products) {
@@ -34,6 +51,7 @@ export const StoreIndividualPage = ({ id }) => {
       image: product.image,
       price: product.price,
     });
+    setUpdateCart(!updateCart);
     toast.success("Producto agregado al carrito");
   };
 
@@ -66,9 +84,19 @@ export const StoreIndividualPage = ({ id }) => {
             <p className="text-slate-900 text-base mt-4">
               {product.description}
             </p>
-            <Button onPress={handleAddToCart} className="mt-4" color="primary">
-              Agregar al carrito
-            </Button>
+            <div className="mt-4 flex gap-2 items-center">
+              <Button onPress={handleAddToCart} className="" color="primary">
+                Agregar al carrito
+              </Button>
+            </div>
+            {quantity > 0 && (
+              <small className="text-xs italic">
+                ** Tienes {quantity} en el carrito,{" "}
+                <Link className="underline hover:font-bold" href={"/cart"}>
+                  ver carrito
+                </Link>
+              </small>
+            )}
           </div>
         </div>
       </section>

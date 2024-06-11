@@ -40,7 +40,6 @@ export const addToCart = async (data) => {
       actualCart.push({ productId, count, productName, image, price });
     }
     setLocalStorage("cart", actualCart);
-    console.log("Carrito actualizado", getLocalStorage("cart"));
   } catch (error) {
     console.error("Error al actualizar el carrito en el backend", error);
   }
