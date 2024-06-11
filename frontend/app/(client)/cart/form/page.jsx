@@ -51,6 +51,8 @@ export const Form = () => {
 
   return (
     <>
+
+      <h2 className="pb-10 text-center text-2xl text-white font-medium drop-shadow-2xl  ">Por favor llena los siguientes datos para poder enviarte tu pedido a la brevedad</h2>
       <form
         onSubmit={handleSubmit}
         className="w-2/3 m-auto  bg-purple-400 p-10 flex flex-col gap-8 items-center rounded-xl"

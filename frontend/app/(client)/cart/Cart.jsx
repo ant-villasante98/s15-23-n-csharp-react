@@ -270,11 +270,11 @@ const Cart = () => {
   }
 
   return (
-    <>
-      <h3 className=" flex justify-center items-start bg-purple-300 text-white  text-xl font-semibold md:text-2xl lg:text-3xl pb-10 ">
+    <div className=" min-h-screen">
+       <h3 className=" flex justify-center items-start bg-purple-300 text-white  text-xl font-semibold md:text-2xl lg:text-3xl pt-5 pb-5 ">
         Your Cart:{" "}
       </h3>
-      <ul className="ml-10 mr-10 mb-10 sm:pl-0 sm:pr-0 bg-white rounded-xl  sm:grid sm:grid-cols-1 p-10 lg:p-10">
+      <ul className="min-h-screen   sm:ml-0 sm:mr-0 mb-5 sm:pl-0 sm:pr-0 bg-white rounded-xl  sm:grid sm:grid-cols-1 p-5 lg:p-10">
         {products.map((product) => (
           <li
             key={product.productId}
@@ -283,36 +283,36 @@ const Cart = () => {
             <img
               src={product.image}
               alt={product.productName}
-              className="sm:text-sm md:text-md sm:w-12 sm:h-12 sm:col-start-1 sm:row-start-3 md:col-start-1 md:row-start-3 lg:w-20 lg:h-20 lg:row-start-3"
+              className="sm:text-xs md:text-md sm:w-12 sm:h-12 sm:col-start-1 sm:row-start-3 sm:row-end-5 md:col-start-1 md:row-start-3 lg:w-20 lg:h-20 lg:row-start-3"
             />
             <div className="sm:row-start-1 sm:col-start-1">
-              <p className="sm:text-sm md:text-md  font-bold text-pink-500 lg:text-lg">
+              <p className="sm:text-xs md:text-md  font-bold text-pink-500 lg:text-lg">
                 Producto:
               </p>
             </div>
             <div className="name/price sm:col-start-1 sm:row-start-2 md:col-start-1 md:row-start-2">
-              <h4 className=" sm:text-sm md:text-md text-base text-start pb-1 font-bold text-pink-400 lg:text-lg">
+              <h4 className=" sm:text-xs md:text-md text-base text-start pb-1 font-bold text-pink-400 lg:text-lg">
                 {product.productName}
               </h4>
             </div>
             <div className="sm:row-start-2 sm:col-start-2 md:col-start-2 md:row-start-2">
-              <p className="sm:text-sm  md:text-md font-semibold pt-2 pb-1 text-pink-300 lg:text-lg">
+              <p className="sm:text-xs  md:text-md font-semibold pt-2 pb-1 text-pink-300 lg:text-lg">
                 ${parseInt(product.price)}
               </p>
             </div>
 
             <div className="sm:col-start-2 sm:row-start-1 text-md font-bold text-pink-500 md:pt-0 md:row-start-1 md:col-start-2 lg:text-lg">
-              <p className="sm:text-sm md:text-md lg:text-lg">Precio:</p>
+              <p className="sm:text-xs md:text-md lg:text-lg">Precio:</p>
             </div>
 
             <div className="total sm:col-start-1 sm:row-start-5 md:col-start-4 md:row-start-1 justify-center">
-              <p className="sm:text-sm md:text-md font-bold text-pink-500 sm:text-left lg:text-lg">
+              <p className="sm:text-xs md:text-md font-bold text-pink-500 sm:text-left lg:text-lg">
                 Subtotal:
               </p>
             </div>
 
             <div className="sm:col-start-2 sm:row-start-5 md:col-start-4 md:row-start-2">
-              <p className="sm:text-sm md:text-md font-bold text-pink-500 sm:text-center sm:justify-center lg:text-lg">
+              <p className="sm:text-xs md:text-md font-bold text-pink-500 sm:text-center sm:justify-center lg:text-lg">
                 $
                 {parseInt(product.price) * productQuantities[product.productId]}
               </p>
@@ -326,12 +326,12 @@ const Cart = () => {
             </button>
 
             <div className="sm:row-start-1 sm:col-start-3 md:col-start-3 md:row-start-1">
-              <p className="sm:text-sm md:text-md font-bold text-pink-500 sm:text-center lg:text-lg">
+              <p className="sm:text-xs md:text-md font-bold text-pink-500 sm:text-center lg:text-lg">
                 Unidades:
               </p>
             </div>
 
-            <span className="sm:text-sm text-md font-medium text-gray-400 md:text-md sm:col-start-3 sm:row-start-2 sm:text-center md:col-start-3 md:row-start-2 lg:text-lg">
+            <span className="sm:text-xs text-md font-medium text-gray-400 md:text-md sm:col-start-3 sm:row-start-2 sm:text-center md:col-start-3 md:row-start-2 lg:text-lg">
               {productQuantities[product.productId]}
             </span>
 
@@ -353,8 +353,8 @@ const Cart = () => {
           </li>
         ))}
 
-        <div className="  total flex justify-between pl-3 pr-3 items-center h-20 pb-2   md:justify-around lg:h-60 lg:justify-evenly">
-          <p className=" text-lg text-pink-500 drop-shadow-xl  font-semibold md:text-2xl">
+        <div className="sm:justify-around  total flex justify-between pl-3 pr-3 items-center h-20 pb-2   md:justify-around lg:h-60 lg:justify-evenly">
+          <p className="sm:text-sm text-lg text-pink-500 drop-shadow-xl  font-semibold md:text-2xl">
             Total del Carrito: ${totalCartPrice}
           </p>
           <button
@@ -392,7 +392,7 @@ const Cart = () => {
           </button>
         </div>
       </ul>
-    </>
+    </div>
   );
 };
 
