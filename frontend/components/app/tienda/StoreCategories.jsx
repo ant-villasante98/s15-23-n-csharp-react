@@ -1,6 +1,6 @@
 "use client";
 import { $Category } from "@/stores/products";
-import { useStoreCategories } from "./useStoreCategories";
+import { useStoreCategories } from "./hooks/useStoreCategories";
 
 export const StoreCategories = () => {
   const { categorias } = useStoreCategories();

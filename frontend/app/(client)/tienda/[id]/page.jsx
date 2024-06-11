@@ -1,7 +1,9 @@
+import { StoreIndividualPage } from "@/components/app/tienda/InvidvidualPage/StoreIndividualPage";
+
 export default function StoreItem({ params }) {
   return (
     <main className="flex min-h-screen flex-col">
-      <div>Item id: {params.id}</div>
+      <StoreIndividualPage id={params.id} />
     </main>
   );
 }
