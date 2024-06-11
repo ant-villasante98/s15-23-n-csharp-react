@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CackeBack.DAL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+06bcc18f3e4c48fe2e9029a46a27d21808fcd72c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+12208768a92338974555f67a5448cc36620d043c")]
 [assembly: System.Reflection.AssemblyProductAttribute("CackeBack.DAL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CackeBack.DAL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,441 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\Test\\Test.Cake.BLL\\Test.Cake.BLL.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.BLL\\CackeBack.BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.BLL\\CackeBack.BLL.csproj",
+        "projectName": "CackeBack.BLL",
+        "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.BLL\\CackeBack.BLL.csproj",
+        "packagesPath": "C:\\Users\\Indatech\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Indatech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.DAL\\CackeBack.DAL.csproj": {
+                "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.DAL\\CackeBack.DAL.csproj"
+              },
+              "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\CakeBack.Models.csproj": {
+                "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\CakeBack.Models.csproj"
+              },
+              "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\SharedModule\\Shared.MediatRImplement\\Shared.MediatRImplement.csproj": {
+                "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\SharedModule\\Shared.MediatRImplement\\Shared.MediatRImplement.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.DAL\\CackeBack.DAL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.DAL\\CackeBack.DAL.csproj",
+        "projectName": "CackeBack.DAL",
+        "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.DAL\\CackeBack.DAL.csproj",
+        "packagesPath": "C:\\Users\\Indatech\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.DAL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Indatech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\CakeBack.Models.csproj": {
+                "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\CakeBack.Models.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\CakeBack.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\CakeBack.Models.csproj",
+        "projectName": "CakeBack.Models",
+        "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\CakeBack.Models.csproj",
+        "packagesPath": "C:\\Users\\Indatech\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CakeBack.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Indatech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.5, )"
+            },
+            "Microsoft.Extensions.Options.ConfigurationExtensions": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.5.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\SharedModule\\Shared.MediatRImplement\\Shared.MediatRImplement.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\SharedModule\\Shared.MediatRImplement\\Shared.MediatRImplement.csproj",
+        "projectName": "Shared.MediatRImplement",
+        "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\SharedModule\\Shared.MediatRImplement\\Shared.MediatRImplement.csproj",
+        "packagesPath": "C:\\Users\\Indatech\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\SharedModule\\Shared.MediatRImplement\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Indatech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "MediatR": {
+              "target": "Package",
+              "version": "[12.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\Test\\Test.Cake.BLL\\Test.Cake.BLL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\Test\\Test.Cake.BLL\\Test.Cake.BLL.csproj",
+        "projectName": "Test.Cake.BLL",
+        "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\Test\\Test.Cake.BLL\\Test.Cake.BLL.csproj",
+        "packagesPath": "C:\\Users\\Indatech\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\Test\\Test.Cake.BLL\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Indatech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.BLL\\CackeBack.BLL.csproj": {
+                "projectPath": "C:\\Users\\Indatech\\Documents\\Desarrollo\\Proyectos No_contry\\s15-23-n-csharp-react1\\backend\\CakeBack\\CackeBack.BLL\\CackeBack.BLL.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.6.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.70, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
