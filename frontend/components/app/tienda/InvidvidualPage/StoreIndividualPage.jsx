@@ -27,7 +27,13 @@ export const StoreIndividualPage = ({ id }) => {
   }, [product]);
 
   const handleAddToCart = async () => {
-    /* await addToCart(product.id, 1); */
+    await addToCart({
+      productId: product.id,
+      count: 1,
+      productName: product.name,
+      image: product.image,
+      price: product.price,
+    });
     toast.success("Producto agregado al carrito");
   };
 
