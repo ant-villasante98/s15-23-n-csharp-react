@@ -4,6 +4,7 @@ import axios from "axios";
 import Image from "next/image";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Link from "next/link";
 
 const Cart = () => {
   const [products, setProducts] = useState([]);
@@ -221,6 +222,11 @@ const Cart = () => {
             <path d="M19 22v.01" />
           </svg>
         </h3>
+
+        <Link href="/tienda" passHref>
+        <button className="mt-10 bg-pink-400 h-12 w-36 rounded-lg text-white">Ir a la tienda</button>
+       </Link>
+        
       </div>
     );
   }
