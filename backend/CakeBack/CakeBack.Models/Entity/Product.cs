@@ -6,7 +6,7 @@ namespace CakeBack.Models.Entity
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         public string Description { get; set; }
 
@@ -16,7 +16,7 @@ namespace CakeBack.Models.Entity
 
         public int SubCategoryId { get; set; }
 
-        public virtual SubCategory SubCategory { get; set; }
+        public virtual SubCategory? SubCategory { get; set; }
 
         public decimal precio { get; set; }
 

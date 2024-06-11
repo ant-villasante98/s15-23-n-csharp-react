@@ -80,7 +80,7 @@ namespace CackeBack.DAL.Repository.Implement
             try
             {
 
-                var datos = await _dbContext.categories.Where(p => p.Id == id).FirstAsync();
+                var datos = await _dbContext.Categories.Where(p => p.Id == id).FirstOrDefaultAsync();
 
                 if (datos == null)
                 {
@@ -109,7 +109,7 @@ namespace CackeBack.DAL.Repository.Implement
 
         public async Task<Category> Obtener(int id)
         {
-            var datos = _dbContext.Categories.Where(p => p.Id == id).First();
+            var datos = await _dbContext.Categories.Where(p => p.Id == id).FirstAsync();
 
             if (datos == null)
             {

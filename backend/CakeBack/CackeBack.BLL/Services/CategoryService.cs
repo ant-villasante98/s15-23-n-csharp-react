@@ -1,4 +1,6 @@
 ﻿using CackeBack.BLL.Interfaces;
+using CackeBack.DAL.Repository.Contract;
+using CackeBack.DAL.Repository.Implement;
 using CakeBack.Models.Entity;
 using System;
 using System.Collections.Generic;
@@ -12,29 +14,45 @@ namespace CackeBack.BLL.Services
     {
         private readonly IGenericRepository<Category> _CategoryRepo;
 
-        public Task<bool> Actualizar(int id, Category modelo)
+        public CategoryService(IGenericRepository<Category> CategoryRepo)
         {
-            throw new NotImplementedException();
+            _CategoryRepo = CategoryRepo;
         }
 
-        public Task<bool> Eliminar(int id)
+        public async Task<bool> Insertar(Category modelo)
         {
-            throw new NotImplementedException();
+            return await _CategoryRepo.Insertar(modelo);
         }
 
-        public Task<bool> Insertar(Category modelo)
+        public async Task<bool> Actualizar(int id, Category modelo)
         {
-            throw new NotImplementedException();
+            return await _CategoryRepo.Actualizar(id, modelo);
         }
 
-        public Task<Category> Obtener(int id)
+        public async Task<bool> Eliminar(int id)
         {
-            throw new NotImplementedException();
+            return await _CategoryRepo.Eliminar(id);
         }
 
-        public Task<IQueryable<Category>> ObtenerTodos()
+
+        public async Task<Category> Obtener(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _CategoryRepo.Obtener(id);
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            
+        }
+
+        public async Task<IQueryable<Category>> ObtenerTodos()
+        {
+            return await _CategoryRepo.ObtenerTodos();
         }
     }
 }

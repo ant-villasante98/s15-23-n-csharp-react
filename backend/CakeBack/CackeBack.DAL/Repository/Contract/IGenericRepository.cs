@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CackeBack.DAL.Repository.Contract
 {
-     interface IGenericRepository<TEntityModel> where TEntityModel : class
+     public interface IGenericRepository<TEntityModel> where TEntityModel : class
     {
         Task<bool> Insertar(TEntityModel modelo);
 
