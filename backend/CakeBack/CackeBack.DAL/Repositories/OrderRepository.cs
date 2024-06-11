@@ -11,7 +11,7 @@ public class OrderRepository(CakeDbContext _context) : IOrderRepository
     {
         try
         {
-            _context.Orders.Update(modelo).State = EntityState.Modified;
+            _context.Orders.Update(modelo);
             await _context.SaveChangesAsync();
             return true;
         }
@@ -77,5 +77,15 @@ public class OrderRepository(CakeDbContext _context) : IOrderRepository
     {
         IQueryable<Order> query = _context.Orders.Include(x => x.OrderDetails);
         return query;
+    }
+
+    public Order GetOrderByPreferenceId(string preferenceId)
+    {
+        return _context.Orders.FirstOrDefault(o => o.MercadoPagoPreferenceId == preferenceId);
+    }
+
+    Task<Order> IOrderRepository.GetOrderByPreferenceId(string preferenceId)
+    {
+        throw new NotImplementedException();
     }
 }

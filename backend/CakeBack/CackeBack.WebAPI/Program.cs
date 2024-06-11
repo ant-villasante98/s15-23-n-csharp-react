@@ -1,11 +1,14 @@
 using Cacke.Identity;
+using CackeBack.BLL;
+using CackeBack.BLL.Interfaces;
+using CackeBack.BLL.Services;
 using CackeBack.DAL.Dbcontext;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
+using CackeBack.DAL.Interface;
+using CackeBack.DAL.Repositories;
 using Cart.Application;
 using Cart.Infrastructure;
-using Shared.MediatRImplement;
-using CackeBack.BLL;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -82,6 +85,12 @@ builder.Services.AddMediatR(config =>
 
 // Mock 
 builder.Services.AddScoped<MockService>();
+
+
+builder.Services.AddDbContext<CakeDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("cadenaSQL")));
+builder.Services.AddScoped<IMercadoPagoService, MercadoPagoService>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 
 
 var app = builder.Build();

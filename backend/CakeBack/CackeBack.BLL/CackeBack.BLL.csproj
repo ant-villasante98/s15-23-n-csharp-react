@@ -16,4 +16,8 @@
     <Folder Include="Validation\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="mercadopago-sdk" Version="2.3.8" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,3 @@
-using System.Collections.Immutable;
-
 namespace CakeBack.Models.Entidades;
 
 public class Order
@@ -11,6 +9,8 @@ public class Order
     public OrderState State { get; set; }
     // public int TransaccionId { get; set; }
     public List<OrderDetail> OrderDetails { get; set; } = new List<OrderDetail>();
+    public string MercadoPagoPreferenceId { get; set; }
+    public string MercadoPagoInitPoint { get; set; }
 
     private Order() { }
     public Order(int id, string userId, DateTime creationDate, double totalAmount, OrderState state, List<OrderDetail> orderDetails)

@@ -1,4 +1,4 @@
-using CackBack.BLL.Orders.Request;
+using CackeBack.BLL.Interfaces;
 using CackeBack.BLL.Services;
 using CackeBack.DAL.Interface;
 using CakeBack.Models.Entidades;
@@ -22,10 +22,11 @@ public class OrderServiceTest
 
         var mockOrderRepository = new Mock<IOrderRepository>();
         var mockMediator = new Mock<IMediator>();
+        var mockMercadoPagoService = new Mock<IMercadoPagoService>();
 
         mockOrderRepository.Setup(x => x.FindByUserId(userId)).ReturnsAsync(ordersList);
         mockMediator.Setup(x => x.Publish(It.IsAny<OrderCreationCompleted>(), It.IsAny<CancellationToken>()));
-        var orderService = new OrderService(mockOrderRepository.Object, mockMediator.Object);
+        var orderService = new OrderService(mockOrderRepository.Object, mockMediator.Object, mockMercadoPagoService.Object);
 
         // Act
 
@@ -56,10 +57,11 @@ public class OrderServiceTest
 
         var mockMediator = new Mock<IMediator>();
         var mockOrderRepository = new Mock<IOrderRepository>();
+        var mockMercadoPagoService = new Mock<IMercadoPagoService>();
 
         mockOrderRepository.Setup(r => r.Obtener(orderId)).ReturnsAsync(ExpectedOrder);
 
-        var service = new OrderService(mockOrderRepository.Object, mockMediator.Object);
+        var service = new OrderService(mockOrderRepository.Object, mockMediator.Object, mockMercadoPagoService.Object);
 
         // Act
         var order = await service.GetById(orderId);
@@ -83,10 +85,11 @@ public class OrderServiceTest
 
         var mockOrderRepository = new Mock<IOrderRepository>();
         var mockMediator = new Mock<IMediator>();
+        var mockMercadoPagoService = new Mock<IMercadoPagoService>();
 
 
         mockOrderRepository.Setup(x => x.FindByUserId(userId)).ReturnsAsync(ordersList);
-        var orderService = new OrderService(mockOrderRepository.Object, mockMediator.Object);
+        var orderService = new OrderService(mockOrderRepository.Object, mockMediator.Object, mockMercadoPagoService.Object);
 
         // Act
 

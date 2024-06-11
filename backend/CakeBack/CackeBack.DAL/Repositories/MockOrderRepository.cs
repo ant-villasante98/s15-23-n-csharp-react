@@ -32,6 +32,11 @@ public class MockOrderRepository : IOrderRepository
         return Task.Run(() => orders.Where(o => o.UserId == userId));
     }
 
+    public Order GetOrderByPreferenceId(string preferenceId)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<bool> Insertar(Order modelo)
     {
         return Task.Run(() =>
@@ -56,5 +61,10 @@ public class MockOrderRepository : IOrderRepository
     public Task<IQueryable<Order>> ObtenerTodos()
     {
         return Task.Run(() => orders.AsQueryable());
+    }
+
+    Task<Order> IOrderRepository.GetOrderByPreferenceId(string preferenceId)
+    {
+        throw new NotImplementedException();
     }
 }

@@ -38,6 +38,14 @@ public class OrdersController(IOrderService _orderService) : ControllerBase
     }
     private OrderResponse ToDto(Order order)
     {
-        return new OrderResponse(order.Id, order.UserId, order.CreationDate, order.TotalAmount, order.OrderDetails.Select(x => new OrderDetailResponse(x.ProductId, x.Quantity, x.UnitPrice, x.SubTotal, x.Unit)).ToList());
+        return new OrderResponse(
+            order.Id,
+            order.UserId,
+            order.CreationDate,
+            order.TotalAmount,
+            order.OrderDetails.Select(x => new OrderDetailResponse(x.ProductId, x.Quantity, x.UnitPrice, x.SubTotal, x.Unit)).ToList(),
+            order.MercadoPagoPreferenceId,
+            order.MercadoPagoInitPoint,
+            order.State);
     }
 }

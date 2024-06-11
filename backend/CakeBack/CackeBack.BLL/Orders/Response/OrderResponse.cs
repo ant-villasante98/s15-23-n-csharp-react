@@ -1,4 +1,4 @@
-using Microsoft.Identity.Client;
+using CakeBack.Models.Entidades;
 
 namespace CackBack.BLL.Orders.Response;
 
@@ -7,5 +7,8 @@ public record OrderResponse(
     string User,
     DateTime CreationDate,
     double TotalAmount,
-    List<OrderDetailResponse> OrderDetails
+    List<OrderDetailResponse> OrderDetails,
+    string MercadoPagoPreferenceId,
+    string MercadoPagoInitPoint,
+    OrderState OrderState
 );

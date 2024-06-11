@@ -8,7 +8,7 @@ using Shared.MediatRImplement.Notifications;
 namespace CackeBack.BLL.Services;
 
 // TODO: implementar Fluent Validation
-public class OrderService(IOrderRepository _orderRepository, IMediator _mediator) : IOrderService
+public class OrderService(IOrderRepository _orderRepository, IMediator _mediator, IMercadoPagoService _mercadoPagoService) : IOrderService
 {
     public async Task<Order> Create(string user, List<CreatingOrderDetailRequest> orderDetailDtos)
     {
@@ -24,6 +24,10 @@ public class OrderService(IOrderRepository _orderRepository, IMediator _mediator
 
         // guardar
         Order order = Order.Create(user, orderDetails);
+
+        //mercado pago
+        var preference = _mercadoPagoService.CreatePreference(order);
+        order.MercadoPagoInitPoint = preference.InitPoint;
 
         await _orderRepository.Insertar(order);
 
@@ -55,7 +59,7 @@ public class OrderService(IOrderRepository _orderRepository, IMediator _mediator
         Order? order = await GetById(id);
         order.State = state;
 
-        await _orderRepository.Actualizar(id, order);
+        await _orderRepository.Actualizar(order);
     }
 
     private List<OrderDetail> VerificarProducts(List<CreatingOrderDetailRequest> orderDetails)
