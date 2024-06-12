@@ -43,9 +43,9 @@ public class OrdersController(IOrderService _orderService) : ControllerBase
             order.UserId,
             order.CreationDate,
             order.TotalAmount,
+            order.State,
             order.OrderDetails.Select(x => new OrderDetailResponse(x.ProductId, x.Quantity, x.UnitPrice, x.SubTotal, x.Unit)).ToList(),
             order.MercadoPagoPreferenceId,
-            order.MercadoPagoInitPoint,
-            order.State);
+            order.MercadoPagoInitPoint);
     }
 }

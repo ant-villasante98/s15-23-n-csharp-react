@@ -26,8 +26,8 @@ public class OrderService(IOrderRepository _orderRepository, IMediator _mediator
         Order order = Order.Create(user, orderDetails);
 
         //mercado pago
-        var preference = _mercadoPagoService.CreatePreference(order);
-        order.MercadoPagoInitPoint = preference.InitPoint;
+        order.MercadoPagoPreferenceId = "";
+        order.MercadoPagoInitPoint = "";
 
         await _orderRepository.Insertar(order);
 

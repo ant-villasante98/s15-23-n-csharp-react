@@ -3,12 +3,13 @@ using CakeBack.Models.Entidades;
 namespace CackBack.BLL.Orders.Response;
 
 public record OrderResponse(
-    int Id,
-    string User,
-    DateTime CreationDate,
-    double TotalAmount,
-    List<OrderDetailResponse> OrderDetails,
+    int id,
+    string userId,
+    DateTime creationDate,
+    double totalAmount,
+    OrderState state,
+    List<OrderDetailResponse> orderDetails,
     string MercadoPagoPreferenceId,
-    string MercadoPagoInitPoint,
-    OrderState OrderState
+    string MercadoPagoInitPoint
+
 );

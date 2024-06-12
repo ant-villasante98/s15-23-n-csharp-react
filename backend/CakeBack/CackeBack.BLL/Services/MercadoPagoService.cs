@@ -2,10 +2,9 @@
 using CackeBack.DAL.Interface;
 using CakeBack.Models.Entidades;
 using CakeBack.Models.MercadoPago;
+using MercadoPago.Client.Payment;
 using MercadoPago.Client.Preference;
 using MercadoPago.Config;
-using MercadoPago.Resource.Preference;
-using Newtonsoft.Json;
 
 namespace CackeBack.BLL.Services
 {
@@ -21,7 +20,7 @@ namespace CackeBack.BLL.Services
             MercadoPagoConfig.AccessToken = ""; // Set your Mercado Pago access token
         }
 
-        public Preference CreatePreference(Order order)
+        public async Task<string> CreatePreferenceAsync(Order order)
         {
             var request = new PreferenceRequest
             {
@@ -33,82 +32,56 @@ namespace CackeBack.BLL.Services
                     Pending = "https://localhost:7071/swagger/pending.html"
                 },
                 AutoReturn = "approved",
-                NotificationUrl = "ngrokURL/api/MercadoPago/notifications"
+                NotificationUrl = ""
             };
 
             foreach (var detail in order.OrderDetails)
             {
                 request.Items.Add(new PreferenceItemRequest
                 {
+                    UnitPrice = (decimal)detail.UnitPrice,
                     Title = "Product " + detail.ProductId,
-                    Quantity = detail.Quantity,
+                    //Id = detail.Id.ToString(),
                     CurrencyId = "ARS", // Change to your currency
-                    UnitPrice = (decimal)detail.UnitPrice
+                    Quantity = detail.Quantity
                 });
             }
+            request.Payer = new PreferencePayerRequest()
+            {
+                Email = "test@test.com"
+            };
 
             var client = new PreferenceClient();
-            var preference = client.Create(request);
+            var preference = await client.CreateAsync(request);
+
             order.MercadoPagoPreferenceId = preference.Id;
-            Console.Write("hola");
-            return preference;
+            order.MercadoPagoInitPoint = preference.InitPoint;
+            await _orderRepository.Actualizar(order);
+
+            return preference.InitPoint;
         }
 
-        public async Task HandleNotification(MercadoPagoNotification mpNotification)
-        {
-            if (mpNotification.Type == "payment")
-            {
-                var paymentInfo = await GetPaymentInfo(mpNotification.Data.Id);
 
-                if (paymentInfo != null)
+        public async Task HandleNotificationAsync(MercadoPagoNotification notification)
+        {
+            var client = new PaymentClient();
+            var payment = await client.GetAsync(notification.Data.Id);
+
+            var orderId = payment.Metadata != null ? payment.Metadata["order_id"].ToString() : null;
+
+            if (orderId != null && int.TryParse(orderId, out int parsedOrderId))
+            {
+                var order = await _orderRepository.Obtener(parsedOrderId);
+
+                if (order != null)
                 {
-                    await ProcessPaymentNotification(paymentInfo);
-                }
-            }
-        }
-
-        private async Task<MercadoPagoPaymentInfo> GetPaymentInfo(string id)
-        {
-            var url = $"https://api.mercadopago.com/v1/payments/{id}?access_token={MercadoPagoConfig.AccessToken}";
-            var response = await _httpClient.GetAsync(url);
-
-            if (response.IsSuccessStatusCode)
-            {
-                var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<MercadoPagoPaymentInfo>(content);
-            }
-
-            Console.WriteLine($"Failed to get payment info: {response.ReasonPhrase}");
-            return null;
-        }
-
-        public async Task ProcessPaymentNotification(MercadoPagoPaymentInfo paymentInfo)
-        {
-            var order = await _orderRepository.GetOrderByPreferenceId(paymentInfo.PreferenceId);
-
-            if (order != null)
-            {
-                switch (paymentInfo.Status)
-                {
-                    case "approved":
+                    if (payment.Status == "approved")
+                    {
                         order.State = OrderState.Paid;
-                        break;
-                    case "pending":
-                    case "in_process":
-                        order.State = OrderState.Created;
-                        break;
-                    case "rejected":
-                        order.State = OrderState.Canceled;
-                        break;
+                        await _orderRepository.Actualizar(order);
+                    }
                 }
-
-                await _orderRepository.Actualizar(order);
             }
-        }
-
-        public Task ProcessPaymentNotification(MercadoPagoNotification notification)
-        {
-            throw new NotImplementedException();
         }
     }
 }
