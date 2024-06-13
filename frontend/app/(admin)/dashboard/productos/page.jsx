@@ -1,9 +1,8 @@
-'use client'
+'use client';
 import { useState } from 'react';
 import { useStore } from '@nanostores/react';
 import { $Products } from '../../../../stores/products';
 import { MdAddShoppingCart, MdDelete, MdEdit } from 'react-icons/md';
-import CountUsers from '@/components/app/admin/dashboard/pagination/CountUsers';
 import ProductModal from '@/components/app/admin/dashboard/products/ProductModal';
 import Search from '@/components/app/admin/dashboard/search/Search';
 
@@ -13,29 +12,18 @@ const ProductsPage = () => {
     const products = useStore($Products);
     const itemsPerPage = 8;
 
-    // Calcular los productos a mostrar en la página actual
     const indexOfLastProduct = currentPage * itemsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - itemsPerPage;
     const currentProducts = products.slice(indexOfFirstProduct, indexOfLastProduct);
 
-    // Calcular el número total de páginas
     const totalPages = Math.ceil(products.length / itemsPerPage);
+
+    const handleClick = (pageNumber) => {
+        setCurrentPage(pageNumber);
+    };
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
-
-    // Manejadores de cambio de página
-    const goToNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
-    const goToPreviousPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
 
     return (
         <div className='flex flex-col gap-5 w-full'>
@@ -64,7 +52,7 @@ const ProductsPage = () => {
                         {currentProducts.map(product => (
                             <tr key={product.id} className='even:bg-slate-200'>
                                 <td className='p-2'>
-                                    <div className='flex gap-2 items-center justify-center'>
+                                    <div className='flex gap-2 items-center px-[50px]'>
                                         <img
                                             src={product.image}
                                             alt={product.name}
@@ -99,21 +87,17 @@ const ProductsPage = () => {
                     </tbody>
                 </table>
                 <div className='flex justify-between mt-4'>
-                    <button
-                        className='p-2 bg-gray-300 rounded-md'
-                        onClick={goToPreviousPage}
-                        disabled={currentPage === 1}
-                    >
-                        Anterior
-                    </button>
-                    <span>Página {currentPage} de {totalPages}</span>
-                    <button
-                        className='p-2 bg-gray-300 rounded-md'
-                        onClick={goToNextPage}
-                        disabled={currentPage === totalPages}
-                    >
-                        Siguiente
-                    </button>
+                    <div className='flex gap-2'>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <button
+                                key={index}
+                                className={`px-3 py-1 rounded-md ${currentPage === index + 1 ? 'bg-blue-500 text-white' : 'bg-gray-200'}`}
+                                onClick={() => handleClick(index + 1)}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
             {isModalOpen && <ProductModal onClose={closeModal} />}
