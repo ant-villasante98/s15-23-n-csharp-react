@@ -10,6 +10,7 @@ import {
 } from "react-icons/md";
 import Image from 'next/image';
 import MenuLink from './menuLink/MenuLink';
+import Link from 'next/link';
 
 const menuItems = [
   {
@@ -34,16 +35,6 @@ const menuItems = [
         title: "Ordenes",
         path: "/dashboard/ordenes",
         icon: <MdOutlinePayments />
-      },
-    ]
-  },
-  {
-    title: "Configuraciones",
-    list: [
-      {
-        title: "Configuraciones",
-        path: "/configuraciones",
-        icon: <MdOutlineSettings />
       },
     ]
   },
@@ -81,13 +72,10 @@ const SidebarAdmin = () => {
           </li>
         )}
       </ul>
-      <button
-        className='p-4 mt-[5px] mb-0 flex items-center gap-3 cursor-pointer rounded-xl border-none bg-none w-full
-        hover:bg-gradient-to-b from-[#765ca6] to-[#5f4b85]  text-white'
-      >
+      <Link href="/" className='p-4 mt-[5px] mb-0 flex items-center gap-3 cursor-pointer rounded-xl border-none bg-none w-full hover:bg-gradient-to-b from-[#765ca6] to-[#5f4b85] text-white'>
         <MdLogout />
-        Cerrar Sesion
-      </button>
+        Cerrar Sesión
+      </Link>
     </div>
   )
 }
