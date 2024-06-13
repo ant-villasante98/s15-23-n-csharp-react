@@ -16,7 +16,7 @@ export default function Hero() {
             <div className="absolute w-full h-full flex items-top pt-28 bg-white bg-opacity-10 lg:pt-80 bg-blur-xsm lg:bg-opacity-0 lg:bg-blur-none">
                <div className="pt-2 lg:pl-14 pl-2 flex flex-col justify-between xl:items-start items-center w-full ">
                   <h1 className="p-2 flex-1 text-center md:text-start font-poppins font-semibold text-[#ffa8e5] font-Elegant text-6xl md:text-9xl drop-shadow-[0_1.2px_1.2px_rgba(182,113,161,0.8)] ">
-                     Endulzamos <br></br>tus momentos gaaa
+                     Endulzamos <br></br>tus momentos 
                   </h1>
                </div>
             </div>
