@@ -203,17 +203,24 @@ const Cart = () => {
     };
 
     console.log("Order to be sent:", JSON.stringify(order, null, 2));
-    toast.success(" Procediendo al checkout.", {
-      position: "top-center",
-    });
 
+    if(order != null && order.length != 0){
+      toast.success("Procediendo al checkout")
+      router.push("/cart/form");
+    }
+
+    else{
+      toast.error("Hubo un error al procesar tu pedido. Por favor, intenta nuevamente")
+    }
+  };
+   
 
     
       
      
 
-    router.push("/cart/form");
-  };
+   
+  ;
 
   //redirige a la pagina donde pida los datos o de MP
 
