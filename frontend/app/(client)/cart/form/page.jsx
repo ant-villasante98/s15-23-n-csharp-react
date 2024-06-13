@@ -30,9 +30,9 @@ export const Form = () => {
       errores.postalCode = "Código postal no válido";
     }
 
-    if (!/^\d{10}$/.test(cellphone)) {
+ /*    if (!/^\d{10}$/.test(cellphone)) {
       errores.cellphone = "Teléfono no válido";
-    }
+    } */
 
     return errores;
   };
