@@ -14,18 +14,18 @@ export const Form = () => {
   const validate = () => {
     const errores = {};
 
-    if (!name.trim()) {
+    /* if (!name.trim()) {
       errores.name = "El nombre es obligatorio";
     }
-
-    if (!lastName.trim()) {
+ */
+   /*  if (!lastName.trim()) {
       errores.lastName = "El apellido es obligatorio";
     }
-
-    if (!/^\S+@\S+\.\S+$/.test(email)) {
+ */
+    if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
       errores.email = "Email no válido";
     }
-
+    
     if (!/^\d{5}$/.test(postalCode)) {
       errores.postalCode = "Código postal no válido";
     }
