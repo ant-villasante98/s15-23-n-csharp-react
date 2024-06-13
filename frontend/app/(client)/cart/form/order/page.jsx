@@ -53,10 +53,10 @@ const Order = () => {
       : 0;
 
   return (
-    <div className="w-full bg-pink-300 flex flex-col items-center">
-      <div className="w-full flex flex-row justify-around gap-10 bg-pink-300 p-5 sm:flex sm:flex-col md:flex md:flex-row">
-        <div className="w-1/2 flex flex-col gap-10 bg-white px-10 sm:gap3">
-          <h1 className="pt-2 text-xl font-semibold text-pink-400 text-center">Datos del comprador: </h1>
+    <div className="w-full bg-pink-300 flex flex-col items-center rounded-2xl ">
+      <div className="w-full flex flex-row justify-around gap-10 bg-pink-300 p-5 sm:flex sm:flex-col md:flex md:flex-row rounded-2xl">
+        <div className="w-1/2 flex flex-col gap-10 bg-white px-10 sm:gap3 rounded-xl">
+          <h1 className="pt-2 text-xl font-semibold text-pink-400 text-center underline">Datos del comprador: </h1>
           <p className="text-pink-600 font-medium">Nombre: {buyerInfo.name} {buyerInfo.lastName}</p>
            <p className="text-pink-600 font-medium">Direccion: {buyerInfo.adress}</p>
           <p className="text-pink-600 font-medium">Email: {buyerInfo.email}</p>
@@ -64,8 +64,8 @@ const Order = () => {
           <p className="text-pink-600 font-medium">Telefono: {buyerInfo.cellphone}</p>
         </div>
 
-        <div className="w-1/2 flex md:flex-col md:gap-8 bg-white px-10">
-          <h1 className="pt-2 text-xl font-semibold text-pink-400 text-center">Detalles de la orden: </h1>
+        <div className="w-1/2 flex md:flex-col md:gap-8 bg-white px-10 rounded-xl">
+          <h1 className="pt-2 text-xl font-semibold text-pink-400 text-center underline">Detalles de la orden: </h1>
           {orders && orders.length > 0 ? (
             orders.map((order) => (
               <ul className="grid grid-cols-4 md:gap-8" key={order.productId}>
@@ -81,7 +81,7 @@ const Order = () => {
             <p>No orders found.</p>
           )}
           <div className="mt-5 mb-5">
-        <p className="text-pink-800  text-xl font-bold">Total: ${totalPrice}</p>
+        <p className="text-pink-600  text-xl font-bold">Total: ${totalPrice}</p>
       </div>
         </div>
       </div>
