@@ -1,5 +1,7 @@
 "use client";
 
+import { $OrdersInfo } from "@/stores/ordersinfo";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export const Form = () => {
@@ -10,6 +12,7 @@ export const Form = () => {
   const [postalCode, setPostalCode] = useState("");
   const [cellphone, setCellphone] = useState("");
   const [errors, setErrors] = useState({});
+  const router = useRouter();
 
   const validate = () => {
     const errores = {};
@@ -37,13 +40,18 @@ export const Form = () => {
     return errores;
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const errores = validate();
 
     if (Object.keys(errores).length === 0) {
       // Aquí puedes enviar los datos a un servidor o manejarlos como desees
-      console.log({ name, lastName, email, postalCode, cellphone });
+      console.log({ name, lastName, email, adress ,postalCode, cellphone });
+      $OrdersInfo.set({ name,  lastName,  email, adress , postalCode , cellphone})
+     
+      router.push("/cart/form/order")
+
     } else {
       setErrors(errores);
     }

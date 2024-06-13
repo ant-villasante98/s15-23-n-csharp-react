@@ -205,8 +205,8 @@ const Cart = () => {
     console.log("Order to be sent:", JSON.stringify(order, null, 2));
 
     try {
-      const response = await axios.post(
-        `${url}/api/v1/orders`, //Orders
+      const response = await axios.post(""
+        /* `${url}/api/v1/orders` */, //Orders
         order,
         {
           headers: {
@@ -215,7 +215,7 @@ const Cart = () => {
         }
       );
 
-      console.log("Orden creada exitosamente:", response.data);
+      
       toast.success(" Procediendo al checkout.", {
         position: "top-center",
       });
