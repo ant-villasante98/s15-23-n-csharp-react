@@ -1,16 +1,21 @@
-import { data } from 'autoprefixer';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
+import { useStore } from '@nanostores/react';
+import { $Products } from '../../../../../stores/products';
 
 export default function ProductModal({ onClose }) {
   const [product, setProduct] = useState({
     id: 0,
-    count: 0,
-    price: 0,
     name: '',
+    price: 0,
+    description: '',
     image: '',
-    category: 'Pasteles'
+    category: 'Pasteles',
+    createdAt: new Date().toISOString().split('T')[0], 
+    updatedAt: new Date().toISOString().split('T')[0]  
   });
+
+  const products = useStore($Products);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -20,33 +25,22 @@ export default function ProductModal({ onClose }) {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     try {
-        product.count = parseInt(product.count);
-        product.id = parseInt(product.id);
-        product.price = parseInt(product.price);
-        
-        const response = await fetch('https://cakeback.somee.com/api/v1/shopping-carts/add-product', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(product)
-        });
-        
-        if (response.status === 200 || response.status === 204) {
-            toast.success('Producto agregado con éxito!');
-            onClose();
-        } else {
-            throw new Error('Error en la solicitud');
-        }
-    } catch (error) {
-        toast.error('Error al agregar el producto');
-        console.error('Error al agregar el producto:', error);
-    }
-};
+      product.id = parseInt(product.id);
+      product.price = parseInt(product.price);
 
+      // Actualizar el estado de Nanostores
+      $Products.set([...products, product]);
+
+      toast.success('Producto agregado con éxito!');
+      onClose();
+    } catch (error) {
+      toast.error('Error al agregar el producto');
+      console.error('Error al agregar el producto:', error);
+    }
+  };
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
@@ -68,11 +62,11 @@ export default function ProductModal({ onClose }) {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Cantidad:</label>
+            <label className="block text-gray-700">Nombre:</label>
             <input
-              type="number"
-              name="count"
-              value={product.count}
+              type="text"
+              name="name"
+              value={product.name}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded"
               required
@@ -90,11 +84,11 @@ export default function ProductModal({ onClose }) {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Nombre:</label>
+            <label className="block text-gray-700">Descripción:</label>
             <input
               type="text"
-              name="name"
-              value={product.name}
+              name="description"
+              value={product.description}
               onChange={handleChange}
               className="w-full px-3 py-2 border rounded"
               required
