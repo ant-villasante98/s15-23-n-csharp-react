@@ -203,31 +203,14 @@ const Cart = () => {
     };
 
     console.log("Order to be sent:", JSON.stringify(order, null, 2));
+    toast.success(" Procediendo al checkout.", {
+      position: "top-center",
+    });
 
-    try {
-      const response = await axios.post(""
-        /* `${url}/api/v1/orders` */, //Orders
-        order,
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
 
+    
       
-      toast.success(" Procediendo al checkout.", {
-        position: "top-center",
-      });
-    } catch (error) {
-      console.error("Error al crear la orden:", error);
-      toast.error(
-        "Hubo un error al procesar tu pedido. Por favor, intenta nuevamente.",
-        {
-          position: "top-center",
-        }
-      );
-    }
+     
 
     router.push("/cart/form");
   };
